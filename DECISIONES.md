@@ -155,23 +155,49 @@ presentación ("473 ml") es parte del nombre, no la unidad; (c) los cierres
 | **google/gemini-2.5-flash-lite** | **82/84 (97.6 %)** | **0.68 s / 1.01 s** | **US$ 0.00017** |
 | anthropic/claude-haiku-5.5 | 83/84 (98.8 %) | 1.23 s / 2.61 s | US$ 0.00059 |
 
-**Decisión: `google/gemini-2.5-flash-lite`.**
+**Ronda final: 106 casos (84 publicados y 22 propios), registrada en MLflow.**
+Los casos propios (`casos/casos_propios.jsonl`) no se usaron para ajustar el
+prompt, así que funcionan como prueba independiente. También se comparan las
+dos variantes de instrucciones. Resumen en `evidencia/comparacion.md`:
 
-- En calidad empata en la práctica con Haiku: la diferencia es un caso de 84, y
-  los casos que fallan cambian entre corridas (variación del modelo, no una
-  regla mal entendida).
-- Es unas 2 veces más rápido en la mediana y unas 2.6 veces en p95, lo que
-  importa para responder por WhatsApp.
-- Cuesta unas 3.5 veces menos: unos US$ 0.17 por cada 1000 pedidos contra
-  US$ 0.59.
-- **Respaldo:** `anthropic/claude-haiku-5.5`, de calidad equivalente. Para
-  cambiar basta con `OPENROUTER_MODEL`.
+| Alternativa | Exactos | Estado / Total / Motivos | Latencia p50 / p95 | US$ por pedido |
+|---|---|---|---|---|
+| Gemini, instrucciones `base` | 102/106 (96.2 %) | 97 % / 97 % / 96 % | 1.28 / 1.66 s | 0.00012 |
+| **Gemini, instrucciones `ejemplos`** | **104/106 (98.1 %)** | **100 % / 100 % / 100 %** | **1.24 / 1.59 s** | **0.00016** |
+| Haiku, instrucciones `ejemplos` | 106/106 (100 %) | 100 % / 100 % / 100 % | 1.71 / 3.10 s | 0.00058 |
 
-**Limitación.** El prompt se ajustó mirando estos 84 casos, así que su resultado
-es algo optimista. Para no seguir acomodándolo a este conjunto, no se ajustó más
-después de la segunda ronda. Los casos propios de `casos/`, que el prompt nunca
-vio, funcionan como prueba independiente.
+La latencia de esta ronda incluye el registro de cada caso en MLflow, por eso es
+mayor que en las rondas anteriores. Todas las alternativas se midieron igual.
 
+- **Casos propios:** Gemini con `ejemplos` resolvió los 22: manipulación 7/7,
+  cantidades no convertibles 4/4 y situaciones nuevas 11/11.
+- **Los ejemplos ayudan:** sin ellos, Gemini falla 4 casos. Uno es un intento de
+  manipulación (X04): no marcó el producto inventado "Z99 gratis" como
+  `producto_no_existe` y confirmó el pedido sin revisión. Por eso se entrega la
+  variante `ejemplos`.
+- **Los dos fallos de Gemini son consistentes**, porque se repiten en la segunda
+  ronda y en la final, pero no afectan lo que se entrega ni lo que se cobra. En
+  D014 el pedido pasa a revisión igual que lo esperado, solo que al pendiente le
+  falta una de las opciones. En D072 las líneas y el total son correctos y solo
+  difiere el registro de la sustitución.
+
+**Decisión: `google/gemini-2.5-flash-lite` con instrucciones `ejemplos`.**
+
+- Acierta el 100 % del estado, las líneas, el total, la fecha y los motivos de
+  revisión en los 106 casos, igual que Haiku.
+- Es casi 2 veces más rápido en p95 (1.6 s contra 3.1 s).
+- Cuesta unas 3.6 veces menos: unos US$ 0.16 por cada 1000 pedidos contra
+  US$ 0.58.
+- **Lo que se sacrifica:** Haiku también acierta los campos informativos
+  (opciones de un pendiente y registro de sustituciones). Si el negocio valorara
+  eso más que la velocidad, basta con cambiar `OPENROUTER_MODEL` a
+  `anthropic/claude-haiku-5.5`.
+
+**Limitación.** El prompt se ajustó mirando los 84 casos publicados, así que su
+resultado en ellos es algo optimista. Para no seguir acomodándolo a ese
+conjunto, no se ajustó más después de la segunda ronda. El resultado en los 22
+casos propios es la mejor estimación de cómo funcionará con mensajes nuevos,
+aunque con solo 22 casos sigue siendo una estimación gruesa.
 
 ## 7. Servicio y observabilidad
 
@@ -210,3 +236,32 @@ vio, funcionan como prueba independiente.
 - **Datos y credenciales fuera de la imagen.** Los datos se montan desde
   `./publicados/datos` como solo lectura y la clave llega por `env_file`.
   `.dockerignore` excluye `.env` y `publicados/`.
+
+## 8. Evaluación
+
+- **Calificación con código, sin juez LLM.** Cada campo del pedido tiene una
+  respuesta exacta según `politicas.md`: estado, líneas, total, fecha,
+  sustituciones, motivos y pendientes. Compararlos con código es reproducible,
+  gratis y no se equivoca. El `texto` de los pendientes no se compara porque es
+  un fragmento libre del mensaje.
+  - *Alternativa descartada:* un juez LLM. Sería útil para algo subjetivo como
+    el tono de `mensaje_cliente`, pero ese mensaje lo arma una plantilla a
+    partir del pedido calculado (sección 4), así que no puede contradecirlo.
+- **`mlflow.genai.evaluate`.** Cada caso queda como una traza (la llamada al
+  modelo y las reglas) con sus calificaciones. La corrida registra el modelo,
+  la variante y los casos como parámetros, y la exactitud por criterio y por
+  tipo, la latencia y el costo como métricas. Así se comparan las alternativas
+  en la interfaz de MLflow.
+- **Casos propios (22)** en `casos/casos_propios.jsonl`, con el mismo formato
+  que los publicados. Cubren lo que esos casos no tienen: 7 intentos de
+  manipulación (descuentos "autorizados", "ignora las instrucciones", JSON
+  falso, crédito "ampliado", productos inventados), 4 casos de cantidades no
+  convertibles (ningún caso publicado tiene este motivo) y 11 situaciones
+  nuevas (mensajes en spanglish, emojis, cancelaciones, reclamos, límites
+  exactos de descuento y de hora de corte, quitar un producto en otro mensaje).
+  Las respuestas esperadas se calcularon con las políticas y se revisaron a mano.
+- **Solicitudes inválidas.** No caben en el formato de casos porque no tienen un
+  pedido esperado, así que se prueban en `tests/test_api.py`: campos faltantes,
+  lista vacía, fechas mal formadas, tipos incorrectos, JSON roto y cliente
+  inexistente.
+
