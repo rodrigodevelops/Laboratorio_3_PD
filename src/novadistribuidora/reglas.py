@@ -43,10 +43,11 @@ def redondear(valor: Decimal | float) -> Decimal:
     return Decimal(str(valor)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 
 
-def descuento(catalogo: Catalogo, categoria: str, cantidad: int) -> float:
-    """El mayor porcentaje cuyo mínimo se alcance; 0 si ninguno."""
+def descuento(catalogo: Catalogo, categoria: str, cantidad: int) -> int | float:
+    """El mayor porcentaje cuyo mínimo se alcance; 0 si ninguno. Entero cuando lo es."""
     aplicables = [pct for minimo, pct in catalogo.escalas.get(categoria, []) if cantidad >= minimo]
-    return max(aplicables, default=0.0)
+    pct = max(aplicables, default=0)
+    return int(pct) if float(pct).is_integer() else float(pct)
 
 
 def subtotal(cantidad: int, precio: float, descuento_pct: float) -> Decimal:

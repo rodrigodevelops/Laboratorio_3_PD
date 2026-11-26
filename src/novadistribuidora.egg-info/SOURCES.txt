@@ -1,0 +1,16 @@
+pyproject.toml
+src/novadistribuidora/__init__.py
+src/novadistribuidora/asistente.py
+src/novadistribuidora/catalogo.py
+src/novadistribuidora/esquemas.py
+src/novadistribuidora/evaluacion.py
+src/novadistribuidora/extraccion.py
+src/novadistribuidora/mensaje.py
+src/novadistribuidora/reglas.py
+src/novadistribuidora.egg-info/PKG-INFO
+src/novadistribuidora.egg-info/SOURCES.txt
+src/novadistribuidora.egg-info/dependency_links.txt
+src/novadistribuidora.egg-info/top_level.txt
+tests/test_casos_publicados.py
+tests/test_extraccion.py
+tests/test_reglas.py

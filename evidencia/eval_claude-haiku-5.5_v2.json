@@ -1,0 +1,6497 @@
+{
+ "modelo": "anthropic/claude-haiku-5.5",
+ "variante": "ejemplos",
+ "razonamiento": "",
+ "resumen": {
+  "casos": 84,
+  "exactos": 83,
+  "exactitud": 0.9880952380952381,
+  "acierto_estado": 0.9880952380952381,
+  "acierto_lineas": 1.0,
+  "acierto_lineas_exactas": 1.0,
+  "acierto_total": 1.0,
+  "acierto_fecha_entrega": 1.0,
+  "acierto_sustituciones": 1.0,
+  "acierto_motivos": 0.9880952380952381,
+  "acierto_pendientes": 0.9880952380952381,
+  "errores": 0,
+  "latencia_p50_s": 1.2340024895001989,
+  "latencia_p95_s": 2.6090773470004933,
+  "latencia_media_s": 1.4707934860357021,
+  "costo_total_usd": 0.0492697,
+  "costo_por_pedido_usd": 0.0005865440476190476,
+  "tokens_entrada_media": 4759.309523809524,
+  "tokens_salida_media": 221.22619047619048,
+  "exactitud_por_tipo": {
+   "agotado": "6/6",
+   "ambiguo": "7/7",
+   "audio": "3/3",
+   "correccion": "7/7",
+   "credito": "5/5",
+   "fuera_de_alcance": "5/5",
+   "habitual": "8/8",
+   "no_existe": "3/4",
+   "simple": "19/19",
+   "sin_cantidad": "4/4",
+   "unidades": "9/9",
+   "varios_mensajes": "7/7"
+  }
+ },
+ "casos": [
+  {
+   "id": "D001",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.3915937110004961,
+   "latencia_modelo_s": 1.391020688000026,
+   "tokens_entrada": 4787,
+   "tokens_salida": 217,
+   "costo_usd": 0.0005872,
+   "obtenido": {
+    "cliente_id": "C029",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B07",
+      "cantidad": 3,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 3,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     },
+     {
+      "sku": "P02",
+      "cantidad": 5,
+      "precio_unitario": 36.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     }
+    ],
+    "total": 648.0,
+    "fecha_entrega": "2026-12-05",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Agua Pura Cristal 600 ml, 3 cajas de Jugo Huerto Naranja 250 ml y 5 displays de Shampoo Brisa sobre 10 ml, por un total de Q648.00. Entrega: sábado 5 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "72 botellas de agua pura cristal 600 ml",
+      "skus": [
+       "B07"
+      ],
+      "cantidad": 72.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 de jugo huerto naranja",
+      "skus": [
+       "B09"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "5 shampoo birsa sobre 10 ml",
+      "skus": [
+       "P02"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D002",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2105985600001077,
+   "latencia_modelo_s": 1.2105199960005848,
+   "tokens_entrada": 4733,
+   "tokens_salida": 31,
+   "costo_usd": 0.0004888,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D003",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.562608360000013,
+   "latencia_modelo_s": 2.562371544000598,
+   "tokens_entrada": 4754,
+   "tokens_salida": 366,
+   "costo_usd": 0.0006584,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A01",
+      "cantidad": 3,
+      "precio_unitario": 125.0,
+      "descuento_pct": 0,
+      "subtotal": 375.0
+     }
+    ],
+    "total": 375.0,
+    "fecha_entrega": "2026-12-14",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "naranjitas: 3",
+      "opciones": [
+       "B04",
+       "B05"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Arroz La Ceiba 1 lb, por un total de Q375.00. Sobre «naranjitas: 3», un asesor le confirmará. Entrega estimada: lunes 14 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 fardos de arroz ceiba de libra",
+      "skus": [
+       "A01"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "naranjitas: 3",
+      "skus": [
+       "B04",
+       "B05"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D004",
+   "tipo": "audio",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2737166269998852,
+   "latencia_modelo_s": 1.2734477000003608,
+   "tokens_entrada": 4762,
+   "tokens_salida": 148,
+   "costo_usd": 0.0005502,
+   "obtenido": {
+    "cliente_id": "C040",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "S04",
+      "cantidad": 2,
+      "precio_unitario": 50.0,
+      "descuento_pct": 0,
+      "subtotal": 100.0
+     },
+     {
+      "sku": "S03",
+      "cantidad": 1,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 35.0
+     }
+    ],
+    "total": 135.0,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 2 displays de Chicharritos Picantes 30 g y 1 display de Galletas Saladas Crac, por un total de Q135.00. Entrega: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "dos displays de chicharritos picntes 30 g",
+      "skus": [
+       "S04"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "un display de galleta crac",
+      "skus": [
+       "S03"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D005",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.052896502999829,
+   "latencia_modelo_s": 2.0527369110004656,
+   "tokens_entrada": 4749,
+   "tokens_salida": 342,
+   "costo_usd": 0.0006459,
+   "obtenido": {
+    "cliente_id": "C021",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A14",
+      "cantidad": 10,
+      "precio_unitario": 156.0,
+      "descuento_pct": 4,
+      "subtotal": 1497.6
+     }
+    ],
+    "total": 1497.6,
+    "fecha_entrega": "2026-12-01",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "papel higienico",
+      "opciones": [
+       "L04",
+       "L05"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 10 cajas de Nutrimezcla 450 g, por un total de Q1,497.60. Sobre «papel higienico», un asesor le confirmará. Entrega estimada: martes 1 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "10 cajitas de nutrimezcla",
+      "skus": [
+       "A14"
+      ],
+      "cantidad": 10.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "papel higienico",
+      "skus": [
+       "L04",
+       "L05"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D006",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9997386989998631,
+   "latencia_modelo_s": 0.9995112610004071,
+   "tokens_entrada": 4755,
+   "tokens_salida": 96,
+   "costo_usd": 0.0005235,
+   "obtenido": {
+    "cliente_id": "C014",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A15",
+      "cantidad": 15,
+      "precio_unitario": 120.0,
+      "descuento_pct": 4,
+      "subtotal": 1728.0
+     }
+    ],
+    "total": 1728.0,
+    "fecha_entrega": "2026-12-03",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 15 cajas de Sopa Rápida Pollo 64 g, por un total de Q1,728.00. Entrega: jueves 3 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "15 cajas de sopa rápida pollo 64 g",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 15.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D007",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.3830174980002994,
+   "latencia_modelo_s": 1.3827220469993335,
+   "tokens_entrada": 4773,
+   "tokens_salida": 256,
+   "costo_usd": 0.0006053,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A15",
+      "cantidad": 10,
+      "precio_unitario": 120.0,
+      "descuento_pct": 4,
+      "subtotal": 1152.0
+     },
+     {
+      "sku": "B11",
+      "cantidad": 15,
+      "precio_unitario": 150.0,
+      "descuento_pct": 3,
+      "subtotal": 2182.5
+     },
+     {
+      "sku": "S03",
+      "cantidad": 3,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 105.0
+     },
+     {
+      "sku": "L01",
+      "cantidad": 5,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 1320.0
+     }
+    ],
+    "total": 4759.5,
+    "fecha_entrega": "2026-12-09",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 10 cajas de Sopa Rápida Pollo 64 g, 15 fardos de Energía Max 473 ml, 3 displays de Galletas Saladas Crac y 5 fardos de Detergente Espumoso 500 g, por un total de Q4,759.50. Entrega: miércoles 9 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "10 cajas de sopa rapida",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 10.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "15 fardos de energia max",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 15.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 displays de galleta crac",
+      "skus": [
+       "S03"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "cinco detergente espumoso",
+      "skus": [
+       "L01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D008",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.4562781189997622,
+   "latencia_modelo_s": 2.456001925000237,
+   "tokens_entrada": 4760,
+   "tokens_salida": 515,
+   "costo_usd": 0.0007335,
+   "obtenido": {
+    "cliente_id": "C016",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A10",
+      "cantidad": 6,
+      "precio_unitario": 96.0,
+      "descuento_pct": 2,
+      "subtotal": 564.48
+     },
+     {
+      "sku": "P03",
+      "cantidad": 12,
+      "precio_unitario": 144.0,
+      "descuento_pct": 3,
+      "subtotal": 1676.16
+     }
+    ],
+    "total": 2240.64,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "Necesito pasta: 2",
+      "opciones": [
+       "A09",
+       "A10",
+       "P03"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 6 fardos de Pasta Bella Espagueti 200 g y 12 cajas de Pasta Dental Sonrisa 75 ml, por un total de Q2,240.64. Sobre «Necesito pasta: 2», un asesor le confirmará. Entrega estimada: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "Necesito pasta: 2",
+      "skus": [
+       "A09",
+       "A10",
+       "P03"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "seis fardos de espagueti bella",
+      "skus": [
+       "A10"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "12 cajas de pasta dental sonrisa 75 ml",
+      "skus": [
+       "P03"
+      ],
+      "cantidad": 12.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D009",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.6090773470004933,
+   "latencia_modelo_s": 2.608739508999861,
+   "tokens_entrada": 4772,
+   "tokens_salida": 517,
+   "costo_usd": 0.0007357,
+   "obtenido": {
+    "cliente_id": "C029",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B04",
+      "cantidad": 5,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 550.0
+     },
+     {
+      "sku": "S05",
+      "cantidad": 2,
+      "precio_unitario": 48.0,
+      "descuento_pct": 0,
+      "subtotal": 96.0
+     },
+     {
+      "sku": "L03",
+      "cantidad": 2,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 216.0
+     },
+     {
+      "sku": "A15",
+      "cantidad": 4,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 480.0
+     }
+    ],
+    "total": 1342.0,
+    "fecha_entrega": "2026-12-05",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Naranjita 600 ml, 2 displays de Papitas Doradas 40 g, 2 cajas de Cloro Blancura 1 L y 4 cajas de Sopa Rápida Pollo 64 g, por un total de Q1,342.00. Entrega: sábado 5 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "mandeme nranjita 600 ml: 5",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "dos de papitas doradas",
+      "skus": [
+       "S05"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 cloro blancura 1 l",
+      "skus": [
+       "L03"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "4 cajas de sopa rapida",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D010",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2054039220001869,
+   "latencia_modelo_s": 1.2051522210003895,
+   "tokens_entrada": 4740,
+   "tokens_salida": 88,
+   "costo_usd": 0.000518,
+   "obtenido": {
+    "cliente_id": "C034",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "P01",
+      "cantidad": 4,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 672.0
+     }
+    ],
+    "total": 672.0,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 cajas de Jabón de Tocador Rosa 100 g, por un total de Q672.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "cuatro de jabon rosa",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D011",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0345080770002824,
+   "latencia_modelo_s": 1.0342612840004222,
+   "tokens_entrada": 4736,
+   "tokens_salida": 84,
+   "costo_usd": 0.0005156,
+   "obtenido": {
+    "cliente_id": "C032",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A03",
+      "cantidad": 6,
+      "precio_unitario": 175.0,
+      "descuento_pct": 2,
+      "subtotal": 1029.0
+     }
+    ],
+    "total": 1029.0,
+    "fecha_entrega": "2026-12-09",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 6 fardos de Frijol Negro Monte Verde 1 lb, por un total de Q1,029.00. Entrega: miércoles 9 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "6 friijol negro",
+      "skus": [
+       "A03"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D012",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9618496829998548,
+   "latencia_modelo_s": 0.9560248980005781,
+   "tokens_entrada": 4748,
+   "tokens_salida": 86,
+   "costo_usd": 0.0005178,
+   "obtenido": {
+    "cliente_id": "C009",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A06",
+      "cantidad": 1,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 228.0
+     },
+     {
+      "sku": "A16",
+      "cantidad": 2,
+      "precio_unitario": 384.0,
+      "descuento_pct": 0,
+      "subtotal": 768.0
+     },
+     {
+      "sku": "B04",
+      "cantidad": 1,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 110.0
+     },
+     {
+      "sku": "L04",
+      "cantidad": 2,
+      "precio_unitario": 216.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     }
+    ],
+    "total": 1538.0,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [
+     {
+      "sku_solicitado": "A07",
+      "sku_entregado": "A06",
+      "cantidad": 1
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Aceite Girasol Dorado 750 ml, 2 cajas de Leche en Polvo Vaquita 360 g, 1 fardo de Naranjita 600 ml y 2 fardos de Papel Higiénico Suave 4 rollos, por un total de Q1,538.00. Aceite Palma Real 750 ml está agotado; le enviamos Aceite Girasol Dorado 750 ml en su lugar. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "papel suave 4: 2",
+      "skus": [
+       "L04"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D013",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1593498430002,
+   "latencia_modelo_s": 1.159076394999829,
+   "tokens_entrada": 4756,
+   "tokens_salida": 198,
+   "costo_usd": 0.0005746,
+   "obtenido": {
+    "cliente_id": "C027",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B02",
+      "cantidad": 3,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     },
+     {
+      "sku": "A05",
+      "cantidad": 4,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 880.0
+     },
+     {
+      "sku": "A02",
+      "cantidad": 2,
+      "precio_unitario": 480.0,
+      "descuento_pct": 0,
+      "subtotal": 960.0
+     }
+    ],
+    "total": 2272.0,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Kola Norte 1.5 L, 4 fardos de Azúcar Dulzura 5 lb y 2 quintales de Arroz La Ceiba quintal, por un total de Q2,272.00. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 kola de litro y medio",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "azucar dulzura: 4",
+      "skus": [
+       "A05"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "arroz quintal: 2",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D014",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2245385830001396,
+   "latencia_modelo_s": 1.2243377589993543,
+   "tokens_entrada": 4753,
+   "tokens_salida": 152,
+   "costo_usd": 0.0005513,
+   "obtenido": {
+    "cliente_id": "C027",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "S01",
+      "cantidad": 4,
+      "precio_unitario": 42.0,
+      "descuento_pct": 0,
+      "subtotal": 168.0
+     }
+    ],
+    "total": 168.0,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "3 de pasta",
+      "opciones": [
+       "A09",
+       "A10",
+       "P03"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 displays de Galletas Dulcitas Vainilla, por un total de Q168.00. Sobre «3 de pasta», un asesor le confirmará. Entrega estimada: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 de galletas dulcitas vainilla",
+      "skus": [
+       "S01"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 de pasta",
+      "skus": [
+       "A09",
+       "A10",
+       "P03"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D015",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1801588620000985,
+   "latencia_modelo_s": 1.1799252889995842,
+   "tokens_entrada": 4744,
+   "tokens_salida": 143,
+   "costo_usd": 0.0005459,
+   "obtenido": {
+    "cliente_id": "C029",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B12",
+      "cantidad": 6,
+      "precio_unitario": 84.0,
+      "descuento_pct": 0,
+      "subtotal": 504.0
+     },
+     {
+      "sku": "S04",
+      "cantidad": 1,
+      "precio_unitario": 50.0,
+      "descuento_pct": 0,
+      "subtotal": 50.0
+     }
+    ],
+    "total": 554.0,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 6 fardos de Té Frío Quetzal Limón 500 ml y 1 display de Chicharritos Picantes 30 g, por un total de Q554.00. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "6 te frio quetzal limon 500 ml",
+      "skus": [
+       "B12"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "chicharritos",
+      "skus": [
+       "S04"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D016",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8832719440006258,
+   "latencia_modelo_s": 0.8830164870005319,
+   "tokens_entrada": 4738,
+   "tokens_salida": 91,
+   "costo_usd": 0.0005193,
+   "obtenido": {
+    "cliente_id": "C031",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B07",
+      "cantidad": 3,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     }
+    ],
+    "total": 180.0,
+    "fecha_entrega": "2026-12-04",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Agua Pura Cristal 600 ml, por un total de Q180.00. Entrega: viernes 4 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 agua pura cristal 600 ml",
+      "skus": [
+       "B07"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D017",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.5045439569994414,
+   "latencia_modelo_s": 1.50041618799969,
+   "tokens_entrada": 4736,
+   "tokens_salida": 31,
+   "costo_usd": 0.0004891,
+   "obtenido": {
+    "cliente_id": "C005",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A03",
+      "cantidad": 3,
+      "precio_unitario": 175.0,
+      "descuento_pct": 0,
+      "subtotal": 525.0
+     },
+     {
+      "sku": "A06",
+      "cantidad": 3,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 684.0
+     },
+     {
+      "sku": "B08",
+      "cantidad": 3,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 216.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     }
+    ],
+    "total": 1617.0,
+    "fecha_entrega": "2026-12-04",
+    "sustituciones": [
+     {
+      "sku_solicitado": "A07",
+      "sku_entregado": "A06",
+      "cantidad": 3
+     }
+    ],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Desodorante Fresco roll-on 50 ml",
+      "opciones": [
+       "P04"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Frijol Negro Monte Verde 1 lb, 3 cajas de Aceite Girasol Dorado 750 ml, 3 fardos de Agua Pura Cristal 1.5 L y 2 cajas de Jugo Huerto Naranja 250 ml, por un total de Q1,617.00. Aceite Palma Real 750 ml está agotado; le enviamos Aceite Girasol Dorado 750 ml en su lugar. Sobre «Desodorante Fresco roll-on 50 ml», un asesor le confirmará. Entrega estimada: viernes 4 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D018",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.908102095000686,
+   "latencia_modelo_s": 0.907772811000541,
+   "tokens_entrada": 4739,
+   "tokens_salida": 92,
+   "costo_usd": 0.0005199,
+   "obtenido": {
+    "cliente_id": "C037",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B07",
+      "cantidad": 4,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     }
+    ],
+    "total": 240.0,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Agua Pura Cristal 600 ml, por un total de Q240.00. Entrega: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "cuatro farditos de agua cristal 600",
+      "skus": [
+       "B07"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D019",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.0590665380004793,
+   "latencia_modelo_s": 2.058748825999828,
+   "tokens_entrada": 4770,
+   "tokens_salida": 430,
+   "costo_usd": 0.000692,
+   "obtenido": {
+    "cliente_id": "C022",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B05",
+      "cantidad": 3,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 396.0
+     },
+     {
+      "sku": "B06",
+      "cantidad": 12,
+      "precio_unitario": 110.0,
+      "descuento_pct": 3,
+      "subtotal": 1280.4
+     },
+     {
+      "sku": "A09",
+      "cantidad": 5,
+      "precio_unitario": 96.0,
+      "descuento_pct": 2,
+      "subtotal": 470.4
+     }
+    ],
+    "total": 2146.8,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Naranjita 1.5 L, 12 fardos de Limonada Volcán 600 ml y 5 fardos de Pasta Bella Coditos 200 g, por un total de Q2,146.80. Entrega: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "narannjita 1.5: 3",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "12 fardos de limonada volcan 600 ml",
+      "skus": [
+       "B06"
+      ],
+      "cantidad": 12.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "cinco pasta bella coditos 200 g",
+      "skus": [
+       "A09"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D020",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.9840133709994916,
+   "latencia_modelo_s": 2.98386992199994,
+   "tokens_entrada": 4774,
+   "tokens_salida": 527,
+   "costo_usd": 0.0007409,
+   "obtenido": {
+    "cliente_id": "C002",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A04",
+      "cantidad": 4,
+      "precio_unitario": 190.0,
+      "descuento_pct": 0,
+      "subtotal": 760.0
+     },
+     {
+      "sku": "A05",
+      "cantidad": 5,
+      "precio_unitario": 220.0,
+      "descuento_pct": 2,
+      "subtotal": 1078.0
+     }
+    ],
+    "total": 1838.0,
+    "fecha_entrega": "2026-12-04",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Frijol Rojo Monte Verde 1 lb y 5 fardos de Azúcar Dulzura 5 lb, por un total de Q1,838.00. Entrega: viernes 4 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 de frijol rojo",
+      "skus": [
+       "A04"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "azúcar dulzura 5 lb: 2",
+      "skus": [
+       "A05"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "que sean 5 de azúúcar dulzura 5 lb",
+      "skus": [
+       "A05"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D021",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.227481126999919,
+   "latencia_modelo_s": 1.2272795270000643,
+   "tokens_entrada": 4797,
+   "tokens_salida": 290,
+   "costo_usd": 0.0006247,
+   "obtenido": {
+    "cliente_id": "C019",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "L01",
+      "cantidad": 5,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 1320.0
+     },
+     {
+      "sku": "A10",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     },
+     {
+      "sku": "S06",
+      "cantidad": 10,
+      "precio_unitario": 60.0,
+      "descuento_pct": 3,
+      "subtotal": 582.0
+     }
+    ],
+    "total": 2094.0,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Detergente Espumoso 500 g, 2 fardos de Pasta Bella Espagueti 200 g y 10 displays de Maní Salado La Finca 50 g, por un total de Q2,094.00. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "tres fardos de detergente espumoso 500 g",
+      "skus": [
+       "L01"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 fardos de pasta bella espagueti 200 g",
+      "skus": [
+       "A10"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "diez displays de maní sallado la finca 50 g",
+      "skus": [
+       "S06"
+      ],
+      "cantidad": 10.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "corrijo: de deetrgente espumoso 500 g son 5",
+      "skus": [
+       "L01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D022",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0593120519997683,
+   "latencia_modelo_s": 1.0590980550005042,
+   "tokens_entrada": 4743,
+   "tokens_salida": 88,
+   "costo_usd": 0.0005183,
+   "obtenido": {
+    "cliente_id": "C011",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "L06",
+      "cantidad": 1,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     }
+    ],
+    "total": 180.0,
+    "fecha_entrega": "2026-12-11",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Lavaplatos Brillo 450 g, por un total de Q180.00. Entrega: viernes 11 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "1 lavaplatos brillo",
+      "skus": [
+       "L06"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D023",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.936594204999892,
+   "latencia_modelo_s": 1.9364247270004853,
+   "tokens_entrada": 4774,
+   "tokens_salida": 422,
+   "costo_usd": 0.0006884,
+   "obtenido": {
+    "cliente_id": "C012",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B12",
+      "cantidad": 2,
+      "precio_unitario": 84.0,
+      "descuento_pct": 0,
+      "subtotal": 168.0
+     },
+     {
+      "sku": "L06",
+      "cantidad": 3,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 540.0
+     },
+     {
+      "sku": "S03",
+      "cantidad": 4,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 140.0
+     }
+    ],
+    "total": 848.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 2 fardos de Té Frío Quetzal Limón 500 ml, 3 cajas de Lavaplatos Brillo 450 g y 4 displays de Galletas Saladas Crac, por un total de Q848.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "2 te frio quetzal limon 500 ml",
+      "skus": [
+       "B12"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 cajas de laavaplatos brillo",
+      "skus": [
+       "L06"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "galletas saladas crac: 4",
+      "skus": [
+       "S03"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D024",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.349555930999486,
+   "latencia_modelo_s": 1.3493536070000118,
+   "tokens_entrada": 4732,
+   "tokens_salida": 92,
+   "costo_usd": 0.0005192,
+   "obtenido": {
+    "cliente_id": "C009",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A12",
+      "cantidad": 3,
+      "precio_unitario": 420.0,
+      "descuento_pct": 0,
+      "subtotal": 1260.0
+     }
+    ],
+    "total": 1260.0,
+    "fecha_entrega": "2026-11-25",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 cajas de Café Altura Molido 400 g, por un total de Q1,260.00. Entrega: miércoles 25 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "36 bolsas de cafe altura molido",
+      "skus": [
+       "A12"
+      ],
+      "cantidad": 36.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D025",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9868242390002706,
+   "latencia_modelo_s": 0.980041275000076,
+   "tokens_entrada": 4747,
+   "tokens_salida": 86,
+   "costo_usd": 0.0005177,
+   "obtenido": {
+    "cliente_id": "C007",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A10",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 1,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     },
+     {
+      "sku": "L01",
+      "cantidad": 2,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 528.0
+     },
+     {
+      "sku": "P01",
+      "cantidad": 4,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 672.0
+     }
+    ],
+    "total": 1536.0,
+    "fecha_entrega": "2026-12-11",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B03",
+      "sku_entregado": "B02",
+      "cantidad": 1
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 2 fardos de Pasta Bella Espagueti 200 g, 1 fardo de Kola Norte 1.5 L, 2 fardos de Detergente Espumoso 500 g y 4 cajas de Jabón de Tocador Rosa 100 g, por un total de Q1,536.00. Kola Norte 3 L está agotado; le enviamos Kola Norte 1.5 L en su lugar. Entrega: viernes 11 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "quiteme sal pacifico",
+      "skus": [
+       "A11"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "quitar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D026",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0994180220004637,
+   "latencia_modelo_s": 1.099266365999938,
+   "tokens_entrada": 4793,
+   "tokens_salida": 155,
+   "costo_usd": 0.0005568,
+   "obtenido": {
+    "cliente_id": "C036",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B11",
+      "cantidad": 4,
+      "precio_unitario": 150.0,
+      "descuento_pct": 0,
+      "subtotal": 600.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 1,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     }
+    ],
+    "total": 744.0,
+    "fecha_entrega": "2026-11-25",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Energía Max 473 ml y 1 fardo de Kola Norte 1.5 L, por un total de Q744.00. Entrega: miércoles 25 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 FARDOS DE ENERGÍA MAX",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "KOLA NORTE 1.5 L",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D027",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0708449199992174,
+   "latencia_modelo_s": 1.0706649019994074,
+   "tokens_entrada": 4764,
+   "tokens_salida": 154,
+   "costo_usd": 0.0005534,
+   "obtenido": {
+    "cliente_id": "C031",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A06",
+      "cantidad": 2,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 456.0
+     }
+    ],
+    "total": 456.0,
+    "fecha_entrega": "2026-11-24",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Galletas Dulcitas Chocolate",
+      "opciones": [
+       "S02"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 2 cajas de Aceite Girasol Dorado 750 ml, por un total de Q456.00. Sobre «Galletas Dulcitas Chocolate», un asesor le confirmará. Entrega estimada: martes 24 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "dos de aceite girasol dordo 750 ml",
+      "skus": [
+       "A06"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "24 displays de dulcitas chocolate",
+      "skus": [
+       "S02"
+      ],
+      "cantidad": 24.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D028",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8849344899999778,
+   "latencia_modelo_s": 0.8846830799993768,
+   "tokens_entrada": 4740,
+   "tokens_salida": 139,
+   "costo_usd": 0.0005435,
+   "obtenido": {
+    "cliente_id": "C007",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A08",
+      "cantidad": 5,
+      "precio_unitario": 180.0,
+      "descuento_pct": 2,
+      "subtotal": 882.0
+     }
+    ],
+    "total": 882.0,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "naranjitas",
+      "opciones": [
+       "B04",
+       "B05"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Harina de Maíz Mazorca 2 lb, por un total de Q882.00. Sobre «naranjitas», un asesor le confirmará. Entrega estimada: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 harina mazorca",
+      "skus": [
+       "A08"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "naranjitas",
+      "skus": [
+       "B04",
+       "B05"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D029",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1641728900003727,
+   "latencia_modelo_s": 1.1639962839999498,
+   "tokens_entrada": 4759,
+   "tokens_salida": 151,
+   "costo_usd": 0.0005514,
+   "obtenido": {
+    "cliente_id": "C012",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A10",
+      "cantidad": 5,
+      "precio_unitario": 96.0,
+      "descuento_pct": 2,
+      "subtotal": 470.4
+     },
+     {
+      "sku": "A15",
+      "cantidad": 3,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 360.0
+     }
+    ],
+    "total": 830.4,
+    "fecha_entrega": "2026-12-03",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Pasta Bella Espagueti 200 g y 3 cajas de Sopa Rápida Pollo 64 g, por un total de Q830.40. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: jueves 3 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 espagueti bellla",
+      "skus": [
+       "A10"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 cajas de sopa rapida pollo 64 g",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D030",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8354771859994798,
+   "latencia_modelo_s": 0.8306014539994067,
+   "tokens_entrada": 4729,
+   "tokens_salida": 32,
+   "costo_usd": 0.0004889,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A03",
+      "cantidad": 3,
+      "precio_unitario": 175.0,
+      "descuento_pct": 0,
+      "subtotal": 525.0
+     },
+     {
+      "sku": "A05",
+      "cantidad": 3,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 660.0
+     },
+     {
+      "sku": "A16",
+      "cantidad": 1,
+      "precio_unitario": 384.0,
+      "descuento_pct": 0,
+      "subtotal": 384.0
+     },
+     {
+      "sku": "B01",
+      "cantidad": 2,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 2,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     }
+    ],
+    "total": 2097.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Frijol Negro Monte Verde 1 lb, 3 fardos de Azúcar Dulzura 5 lb, 1 caja de Leche en Polvo Vaquita 360 g, 2 fardos de Kola Norte 600 ml y 2 fardos de Kola Norte 1.5 L, por un total de Q2,097.00. Entrega: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D031",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0682039370003622,
+   "latencia_modelo_s": 1.062890170999708,
+   "tokens_entrada": 4743,
+   "tokens_salida": 89,
+   "costo_usd": 0.0005188,
+   "obtenido": {
+    "cliente_id": "C040",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A16",
+      "cantidad": 4,
+      "precio_unitario": 384.0,
+      "descuento_pct": 0,
+      "subtotal": 1536.0
+     },
+     {
+      "sku": "S03",
+      "cantidad": 5,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 175.0
+     }
+    ],
+    "total": 1711.0,
+    "fecha_entrega": "2026-12-11",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Desodorante Fresco roll-on 50 ml",
+      "opciones": [
+       "P04"
+      ]
+     },
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Galletas Dulcitas Chocolate",
+      "opciones": [
+       "S02"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 cajas de Leche en Polvo Vaquita 360 g y 5 displays de Galletas Saladas Crac, por un total de Q1,711.00. Sobre «Desodorante Fresco roll-on 50 ml» y «Galletas Dulcitas Chocolate», un asesor le confirmará. Entrega estimada: viernes 11 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "cinco galletas saladdas crac",
+      "skus": [
+       "S03"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D032",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.3940682430002198,
+   "latencia_modelo_s": 1.3938760520004507,
+   "tokens_entrada": 4772,
+   "tokens_salida": 212,
+   "costo_usd": 0.0005832,
+   "obtenido": {
+    "cliente_id": "C017",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B01",
+      "cantidad": 24,
+      "precio_unitario": 120.0,
+      "descuento_pct": 5,
+      "subtotal": 2736.0
+     },
+     {
+      "sku": "P03",
+      "cantidad": 10,
+      "precio_unitario": 144.0,
+      "descuento_pct": 3,
+      "subtotal": 1396.8
+     },
+     {
+      "sku": "L04",
+      "cantidad": 6,
+      "precio_unitario": 216.0,
+      "descuento_pct": 3,
+      "subtotal": 1257.12
+     }
+    ],
+    "total": 5389.92,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [
+     {
+      "sku_solicitado": "L05",
+      "sku_entregado": "L04",
+      "cantidad": 6
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 24 fardos de Kola Norte 600 ml, 10 cajas de Pasta Dental Sonrisa 75 ml y 6 fardos de Papel Higiénico Suave 4 rollos, por un total de Q5,389.92. Papel Higiénico Suave 12 rollos está agotado; le enviamos Papel Higiénico Suave 4 rollos en su lugar. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "24 fardos de kola 600",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 24.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "10 cajas de pasta dental sonrisa 75 ml",
+      "skus": [
+       "P03"
+      ],
+      "cantidad": 10.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "seis fardos de papel suave 12",
+      "skus": [
+       "L05"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D033",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9396267009997246,
+   "latencia_modelo_s": 0.9359580370000913,
+   "tokens_entrada": 4746,
+   "tokens_salida": 90,
+   "costo_usd": 0.0005196,
+   "obtenido": {
+    "cliente_id": "C017",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A05",
+      "cantidad": 1,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 220.0
+     },
+     {
+      "sku": "B05",
+      "cantidad": 1,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 132.0
+     },
+     {
+      "sku": "P02",
+      "cantidad": 4,
+      "precio_unitario": 36.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     },
+     {
+      "sku": "L01",
+      "cantidad": 5,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 1320.0
+     }
+    ],
+    "total": 1816.0,
+    "fecha_entrega": "2026-12-01",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Café Altura Instantáneo 50 g",
+      "opciones": [
+       "A13"
+      ]
+     },
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Galletas Dulcitas Chocolate",
+      "opciones": [
+       "S02"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 fardo de Azúcar Dulzura 5 lb, 1 fardo de Naranjita 1.5 L, 4 displays de Shampoo Brisa sobre 10 ml y 5 fardos de Detergente Espumoso 500 g, por un total de Q1,816.00. Sobre «Café Altura Instantáneo 50 g» y «Galletas Dulcitas Chocolate», un asesor le confirmará. Entrega estimada: martes 1 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "5 fardos de detergente espumoso",
+      "skus": [
+       "L01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D034",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1464538030004405,
+   "latencia_modelo_s": 1.1461756569997306,
+   "tokens_entrada": 4764,
+   "tokens_salida": 207,
+   "costo_usd": 0.0005799,
+   "obtenido": {
+    "cliente_id": "C040",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A16",
+      "cantidad": 3,
+      "precio_unitario": 384.0,
+      "descuento_pct": 0,
+      "subtotal": 1152.0
+     },
+     {
+      "sku": "B06",
+      "cantidad": 3,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 330.0
+     },
+     {
+      "sku": "S05",
+      "cantidad": 6,
+      "precio_unitario": 48.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     }
+    ],
+    "total": 1770.0,
+    "fecha_entrega": "2026-12-01",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 cajas de Leche en Polvo Vaquita 360 g, 3 fardos de Limonada Volcán 600 ml y 6 displays de Papitas Doradas 40 g, por un total de Q1,770.00. Entrega: martes 1 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 de leche en polvo vaquita 360 g",
+      "skus": [
+       "A16"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 de limonada volcan",
+      "skus": [
+       "B06"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 papitas doradas 40 g",
+      "skus": [
+       "S05"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D035",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.7944694679999884,
+   "latencia_modelo_s": 1.7942331630001718,
+   "tokens_entrada": 4765,
+   "tokens_salida": 382,
+   "costo_usd": 0.0006675,
+   "obtenido": {
+    "cliente_id": "C013",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B04",
+      "cantidad": 5,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 550.0
+     },
+     {
+      "sku": "B01",
+      "cantidad": 5,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 600.0
+     },
+     {
+      "sku": "P01",
+      "cantidad": 6,
+      "precio_unitario": 168.0,
+      "descuento_pct": 3,
+      "subtotal": 977.76
+     }
+    ],
+    "total": 2127.76,
+    "fecha_entrega": "2026-12-09",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Naranjita 600 ml, 5 fardos de Kola Norte 600 ml y 6 cajas de Jabón de Tocador Rosa 100 g, por un total de Q2,127.76. Entrega: miércoles 9 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "cinco de naranjita 600",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "kola norte 600 ml: 5",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 de jabon de tocador rosa 100 g",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D036",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.5549663990004774,
+   "latencia_modelo_s": 1.5547667939999883,
+   "tokens_entrada": 4756,
+   "tokens_salida": 317,
+   "costo_usd": 0.0006341,
+   "obtenido": {
+    "cliente_id": "C016",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "S06",
+      "cantidad": 1,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 60.0
+     },
+     {
+      "sku": "A14",
+      "cantidad": 1,
+      "precio_unitario": 156.0,
+      "descuento_pct": 0,
+      "subtotal": 156.0
+     }
+    ],
+    "total": 216.0,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_no_existe",
+      "texto": "quiero cinco cajas de cerveza",
+      "opciones": []
+     }
+    ],
+    "motivos_revision": [
+     "producto_no_existe"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 display de Maní Salado La Finca 50 g y 1 caja de Nutrimezcla 450 g, por un total de Q216.00. Sobre «quiero cinco cajas de cerveza», un asesor le confirmará. Entrega estimada: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "quiero cinco cajas de cerveza",
+      "skus": [],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "1 mani la finca",
+      "skus": [
+       "S06"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "1 nutrimezcla",
+      "skus": [
+       "A14"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D037",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1036478979995081,
+   "latencia_modelo_s": 1.1033865669996885,
+   "tokens_entrada": 4751,
+   "tokens_salida": 151,
+   "costo_usd": 0.0005506,
+   "obtenido": {
+    "cliente_id": "C032",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A12",
+      "cantidad": 3,
+      "precio_unitario": 420.0,
+      "descuento_pct": 0,
+      "subtotal": 1260.0
+     },
+     {
+      "sku": "L04",
+      "cantidad": 6,
+      "precio_unitario": 216.0,
+      "descuento_pct": 3,
+      "subtotal": 1257.12
+     }
+    ],
+    "total": 2517.12,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [
+     {
+      "sku_solicitado": "L05",
+      "sku_entregado": "L04",
+      "cantidad": 6
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 cajas de Café Altura Molido 400 g y 6 fardos de Papel Higiénico Suave 4 rollos, por un total de Q2,517.12. Papel Higiénico Suave 12 rollos está agotado; le enviamos Papel Higiénico Suave 4 rollos en su lugar. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 de café altura molido",
+      "skus": [
+       "A12"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 fardos de papel higiénico suave 12 rollos",
+      "skus": [
+       "L05"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D038",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.275938406000023,
+   "latencia_modelo_s": 1.275844705000054,
+   "tokens_entrada": 4733,
+   "tokens_salida": 31,
+   "costo_usd": 0.0004888,
+   "obtenido": {
+    "cliente_id": "C016",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D039",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.9689188080001259,
+   "latencia_modelo_s": 1.9686843579993365,
+   "tokens_entrada": 4760,
+   "tokens_salida": 313,
+   "costo_usd": 0.0006325,
+   "obtenido": {
+    "cliente_id": "C009",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "L06",
+      "cantidad": 5,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 900.0
+     },
+     {
+      "sku": "A11",
+      "cantidad": 6,
+      "precio_unitario": 75.0,
+      "descuento_pct": 2,
+      "subtotal": 441.0
+     }
+    ],
+    "total": 1341.0,
+    "fecha_entrega": "2026-11-28",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 5 cajas de Lavaplatos Brillo 450 g y 6 fardos de Sal Pacífico 1 lb, por un total de Q1,341.00. Entrega: sábado 28 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 lavaplatos brillo",
+      "skus": [
+       "L06"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "sal pacifico: 6",
+      "skus": [
+       "A11"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": false,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D040",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8758246449997387,
+   "latencia_modelo_s": 0.8719061669999064,
+   "tokens_entrada": 4773,
+   "tokens_salida": 142,
+   "costo_usd": 0.0005483,
+   "obtenido": {
+    "cliente_id": "C012",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "L01",
+      "cantidad": 3,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 792.0
+     },
+     {
+      "sku": "P01",
+      "cantidad": 4,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 672.0
+     },
+     {
+      "sku": "L06",
+      "cantidad": 2,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 360.0
+     }
+    ],
+    "total": 1824.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Detergente Espumoso 500 g, 4 cajas de Jabón de Tocador Rosa 100 g y 2 cajas de Lavaplatos Brillo 450 g, por un total de Q1,824.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "2 lavaplatos brillo",
+      "skus": [
+       "L06"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "sin desodorante fresco",
+      "skus": [
+       "P04"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "quitar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D041",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1426401039998382,
+   "latencia_modelo_s": 1.1424812780005595,
+   "tokens_entrada": 4790,
+   "tokens_salida": 227,
+   "costo_usd": 0.0005925,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "S03",
+      "cantidad": 8,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 280.0
+     },
+     {
+      "sku": "B12",
+      "cantidad": 6,
+      "precio_unitario": 84.0,
+      "descuento_pct": 0,
+      "subtotal": 504.0
+     }
+    ],
+    "total": 784.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 8 displays de Galletas Saladas Crac y 6 fardos de Té Frío Quetzal Limón 500 ml, por un total de Q784.00. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "6 DISPLAYS DE GALLETA CRAC",
+      "skus": [
+       "S03"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "SEIS DE TE QUTZAL",
+      "skus": [
+       "B12"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "CORRIJO: DE GALLETA CRAC SON OCHO",
+      "skus": [
+       "S03"
+      ],
+      "cantidad": 8.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D042",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.8666060079995077,
+   "latencia_modelo_s": 1.8662953310004013,
+   "tokens_entrada": 4769,
+   "tokens_salida": 341,
+   "costo_usd": 0.0006474,
+   "obtenido": {
+    "cliente_id": "C003",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A15",
+      "cantidad": 1,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 120.0
+     },
+     {
+      "sku": "A14",
+      "cantidad": 5,
+      "precio_unitario": 156.0,
+      "descuento_pct": 2,
+      "subtotal": 764.4
+     },
+     {
+      "sku": "B09",
+      "cantidad": 3,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     }
+    ],
+    "total": 1172.4,
+    "fecha_entrega": "2026-12-09",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B10",
+      "sku_entregado": "B09",
+      "cantidad": 3
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Sopa Rápida Pollo 64 g, 5 cajas de Nutrimezcla 450 g y 3 cajas de Jugo Huerto Naranja 250 ml, por un total de Q1,172.40. Jugo Huerto Manzana 250 ml está agotado; le enviamos Jugo Huerto Naranja 250 ml en su lugar. Entrega: miércoles 9 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "1 de sopa rápida pollo 64 g",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "nutrimezcla: 5",
+      "skus": [
+       "A14"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "tres cajas de jugo huerto manzana",
+      "skus": [
+       "B10"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D043",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0074852399993688,
+   "latencia_modelo_s": 1.0027407379993747,
+   "tokens_entrada": 4759,
+   "tokens_salida": 95,
+   "costo_usd": 0.0005234,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A05",
+      "cantidad": 2,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 440.0
+     },
+     {
+      "sku": "A10",
+      "cantidad": 1,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 96.0
+     },
+     {
+      "sku": "B06",
+      "cantidad": 2,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 220.0
+     },
+     {
+      "sku": "B08",
+      "cantidad": 1,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 72.0
+     },
+     {
+      "sku": "L03",
+      "cantidad": 4,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     },
+     {
+      "sku": "B11",
+      "cantidad": 1,
+      "precio_unitario": 150.0,
+      "descuento_pct": 0,
+      "subtotal": 150.0
+     }
+    ],
+    "total": 1410.0,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 2 fardos de Azúcar Dulzura 5 lb, 1 fardo de Pasta Bella Espagueti 200 g, 2 fardos de Limonada Volcán 600 ml, 1 fardo de Agua Pura Cristal 1.5 L, 4 cajas de Cloro Blancura 1 L y 1 fardo de Energía Max 473 ml, por un total de Q1,410.00. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "Apúnteme 1 de energía max 473 ml",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D044",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8924368220004908,
+   "latencia_modelo_s": 0.8877949629995783,
+   "tokens_entrada": 4750,
+   "tokens_salida": 89,
+   "costo_usd": 0.0005195,
+   "obtenido": {
+    "cliente_id": "C030",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A05",
+      "cantidad": 4,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 880.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 4,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 576.0
+     },
+     {
+      "sku": "P01",
+      "cantidad": 2,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 336.0
+     },
+     {
+      "sku": "S03",
+      "cantidad": 2,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 70.0
+     },
+     {
+      "sku": "S06",
+      "cantidad": 4,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     },
+     {
+      "sku": "B01",
+      "cantidad": 1,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 120.0
+     }
+    ],
+    "total": 2222.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B03",
+      "sku_entregado": "B02",
+      "cantidad": 4
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 4 fardos de Azúcar Dulzura 5 lb, 4 fardos de Kola Norte 1.5 L, 2 cajas de Jabón de Tocador Rosa 100 g, 2 displays de Galletas Saladas Crac, 4 displays de Maní Salado La Finca 50 g y 1 fardo de Kola Norte 600 ml, por un total de Q2,222.00. Kola Norte 3 L está agotado; le enviamos Kola Norte 1.5 L en su lugar. Entrega: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "1 fardo de kola norte 600",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D045",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.8377133980002327,
+   "latencia_modelo_s": 1.837475044000712,
+   "tokens_entrada": 4760,
+   "tokens_salida": 320,
+   "costo_usd": 0.000636,
+   "obtenido": {
+    "cliente_id": "C028",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B04",
+      "cantidad": 3,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 330.0
+     }
+    ],
+    "total": 330.0,
+    "fecha_entrega": "2026-12-01",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_no_existe",
+      "texto": "recargas de q50 x 3",
+      "opciones": []
+     }
+    ],
+    "motivos_revision": [
+     "producto_no_existe"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Naranjita 600 ml, por un total de Q330.00. Sobre «recargas de q50 x 3», un asesor le confirmará. Entrega estimada: martes 1 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "naranjita 600 ml: 3",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "recargas de q50 x 3",
+      "skus": [],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D046",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.9599895159999505,
+   "latencia_modelo_s": 1.959753352000007,
+   "tokens_entrada": 4757,
+   "tokens_salida": 376,
+   "costo_usd": 0.0006637,
+   "obtenido": {
+    "cliente_id": "C019",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A09",
+      "cantidad": 4,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 384.0
+     },
+     {
+      "sku": "A05",
+      "cantidad": 6,
+      "precio_unitario": 220.0,
+      "descuento_pct": 2,
+      "subtotal": 1293.6
+     }
+    ],
+    "total": 1677.6,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 4 fardos de Pasta Bella Coditos 200 g y 6 fardos de Azúcar Dulzura 5 lb, por un total de Q1,677.60. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "coditos bella: 4",
+      "skus": [
+       "A09"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 azúcar dulzura 5 lb",
+      "skus": [
+       "A05"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D047",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.5311623029992916,
+   "latencia_modelo_s": 1.5276197200000752,
+   "tokens_entrada": 4773,
+   "tokens_salida": 280,
+   "costo_usd": 0.0006173,
+   "obtenido": {
+    "cliente_id": "C011",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A06",
+      "cantidad": 4,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 912.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 3,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     },
+     {
+      "sku": "A08",
+      "cantidad": 1,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     },
+     {
+      "sku": "L06",
+      "cantidad": 2,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 360.0
+     }
+    ],
+    "total": 1740.0,
+    "fecha_entrega": "2026-12-08",
+    "sustituciones": [
+     {
+      "sku_solicitado": "A07",
+      "sku_entregado": "A06",
+      "cantidad": 1
+     },
+     {
+      "sku_solicitado": "B10",
+      "sku_entregado": "B09",
+      "cantidad": 3
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 4 cajas de Aceite Girasol Dorado 750 ml, 3 cajas de Jugo Huerto Naranja 250 ml, 1 fardo de Harina de Maíz Mazorca 2 lb y 2 cajas de Lavaplatos Brillo 450 g, por un total de Q1,740.00. Aceite Palma Real 750 ml está agotado; le enviamos Aceite Girasol Dorado 750 ml en su lugar. Jugo Huerto Manzana 250 ml está agotado; le enviamos Jugo Huerto Naranja 250 ml en su lugar. Entrega: martes 8 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "1 de harina mazorca",
+      "skus": [
+       "A08"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "dos lavaplatos brillo 450 g",
+      "skus": [
+       "L06"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D048",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.622205480000048,
+   "latencia_modelo_s": 2.6219344619994445,
+   "tokens_entrada": 4751,
+   "tokens_salida": 442,
+   "costo_usd": 0.0006961,
+   "obtenido": {
+    "cliente_id": "C013",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B05",
+      "cantidad": 3,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 396.0
+     }
+    ],
+    "total": 396.0,
+    "fecha_entrega": "2026-11-28",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_no_existe",
+      "texto": "5 cilindros de gas propano",
+      "opciones": []
+     }
+    ],
+    "motivos_revision": [
+     "producto_no_existe"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Naranjita 1.5 L, por un total de Q396.00. Sobre «5 cilindros de gas propano», un asesor le confirmará. Entrega estimada: sábado 28 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "naranjita 1.5 l: 3",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "5 cilindros de gas propano",
+      "skus": [],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D049",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.3051425550002023,
+   "latencia_modelo_s": 2.3049806509998234,
+   "tokens_entrada": 4760,
+   "tokens_salida": 408,
+   "costo_usd": 0.00068,
+   "obtenido": {
+    "cliente_id": "C038",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A02",
+      "cantidad": 4,
+      "precio_unitario": 480.0,
+      "descuento_pct": 0,
+      "subtotal": 1920.0
+     },
+     {
+      "sku": "A01",
+      "cantidad": 4,
+      "precio_unitario": 125.0,
+      "descuento_pct": 0,
+      "subtotal": 500.0
+     }
+    ],
+    "total": 2420.0,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 4 quintales de Arroz La Ceiba quintal y 4 fardos de Arroz La Ceiba 1 lb, por un total de Q2,420.00. Entrega: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "arroz la ceiba quintal: 4",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "4 farditos de arroz ceeiba de libra",
+      "skus": [
+       "A01"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D050",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.6767995929994868,
+   "latencia_modelo_s": 1.6765675349997764,
+   "tokens_entrada": 4747,
+   "tokens_salida": 92,
+   "costo_usd": 0.0005207,
+   "obtenido": {
+    "cliente_id": "C033",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B02",
+      "cantidad": 3,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     }
+    ],
+    "total": 432.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Kola Norte 1.5 L, por un total de Q432.00. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "36 botellas de kola de litro y medio",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 36.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D051",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2240378020005664,
+   "latencia_modelo_s": 1.223799868000242,
+   "tokens_entrada": 4764,
+   "tokens_salida": 150,
+   "costo_usd": 0.0005514,
+   "obtenido": {
+    "cliente_id": "C029",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B05",
+      "cantidad": 1,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 132.0
+     },
+     {
+      "sku": "A15",
+      "cantidad": 4,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 480.0
+     }
+    ],
+    "total": 612.0,
+    "fecha_entrega": "2026-11-28",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 fardo de Naranjita 1.5 L y 4 cajas de Sopa Rápida Pollo 64 g, por un total de Q612.00. Entrega: sábado 28 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "12 botellas de naranjita 1.5",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 12.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     },
+     {
+      "texto": "4 cajas de sopa rapida",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D052",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1523429629996826,
+   "latencia_modelo_s": 1.1520563630001561,
+   "tokens_entrada": 4762,
+   "tokens_salida": 161,
+   "costo_usd": 0.0005567,
+   "obtenido": {
+    "cliente_id": "C011",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "P01",
+      "cantidad": 1,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 168.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     }
+    ],
+    "total": 360.0,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B10",
+      "sku_entregado": "B09",
+      "cantidad": 2
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Jabón de Tocador Rosa 100 g y 2 cajas de Jugo Huerto Naranja 250 ml, por un total de Q360.00. Jugo Huerto Manzana 250 ml está agotado; le enviamos Jugo Huerto Naranja 250 ml en su lugar. Entrega: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "una caja de jabon de tocador rosa 100 g",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "dos cajas de jugo huerto manzana 250 ml",
+      "skus": [
+       "B10"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D053",
+   "tipo": "audio",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.017660223000348,
+   "latencia_modelo_s": 2.017464540999754,
+   "tokens_entrada": 4781,
+   "tokens_salida": 405,
+   "costo_usd": 0.0006806,
+   "obtenido": {
+    "cliente_id": "C010",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "L02",
+      "cantidad": 3,
+      "precio_unitario": 200.0,
+      "descuento_pct": 0,
+      "subtotal": 600.0
+     },
+     {
+      "sku": "A16",
+      "cantidad": 10,
+      "precio_unitario": 384.0,
+      "descuento_pct": 4,
+      "subtotal": 3686.4
+     }
+    ],
+    "total": 4286.4,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "cuatro de juguitos",
+      "opciones": [
+       "B09",
+       "B10"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 cajas de Jabón de Barra Lavandero 350 g y 10 cajas de Leche en Polvo Vaquita 360 g, por un total de Q4,286.40. Sobre «cuatro de juguitos», un asesor le confirmará. Entrega estimada: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "cuatro de juguitos",
+      "skus": [
+       "B09",
+       "B10"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "tres de jabón de barra lavandero 350 g",
+      "skus": [
+       "L02"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "diez cajas de leche vaquita",
+      "skus": [
+       "A16"
+      ],
+      "cantidad": 10.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D054",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.608533444999921,
+   "latencia_modelo_s": 2.6083125559998734,
+   "tokens_entrada": 4777,
+   "tokens_salida": 462,
+   "costo_usd": 0.0007087,
+   "obtenido": {
+    "cliente_id": "C038",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B08",
+      "cantidad": 20,
+      "precio_unitario": 72.0,
+      "descuento_pct": 5,
+      "subtotal": 1368.0
+     },
+     {
+      "sku": "S05",
+      "cantidad": 4,
+      "precio_unitario": 48.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     }
+    ],
+    "total": 1560.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 20 fardos de Agua Pura Cristal 1.5 L y 4 displays de Papitas Doradas 40 g, por un total de Q1,560.00. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "20 fardos de agua pura 1.5",
+      "skus": [
+       "B08"
+      ],
+      "cantidad": 20.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "1 papitas doradas",
+      "skus": [
+       "S05"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "de papitas doradas 40 g mejor 4",
+      "skus": [
+       "S05"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D055",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9400951030002034,
+   "latencia_modelo_s": 0.9398950530003276,
+   "tokens_entrada": 4733,
+   "tokens_salida": 89,
+   "costo_usd": 0.0005178,
+   "obtenido": {
+    "cliente_id": "C036",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B04",
+      "cantidad": 3,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 330.0
+     }
+    ],
+    "total": 330.0,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Naranjita 600 ml, por un total de Q330.00. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "necesito 3 naranjita 600",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D056",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9609790819995396,
+   "latencia_modelo_s": 0.9607916109998769,
+   "tokens_entrada": 4766,
+   "tokens_salida": 152,
+   "costo_usd": 0.0005526,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B01",
+      "cantidad": 2,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     },
+     {
+      "sku": "A10",
+      "cantidad": 5,
+      "precio_unitario": 96.0,
+      "descuento_pct": 2,
+      "subtotal": 470.4
+     }
+    ],
+    "total": 710.4,
+    "fecha_entrega": "2026-12-14",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 2 fardos de Kola Norte 600 ml y 5 fardos de Pasta Bella Espagueti 200 g, por un total de Q710.40. Entrega: lunes 14 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "48 botellas de kola norte 600",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 48.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     },
+     {
+      "texto": "5 de pasta bella espagueti 200 g",
+      "skus": [
+       "A10"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D057",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.358366765000028,
+   "latencia_modelo_s": 1.3581767169998784,
+   "tokens_entrada": 4785,
+   "tokens_salida": 268,
+   "costo_usd": 0.0006125,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B06",
+      "cantidad": 5,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 550.0
+     },
+     {
+      "sku": "P02",
+      "cantidad": 6,
+      "precio_unitario": 36.0,
+      "descuento_pct": 3,
+      "subtotal": 209.52
+     },
+     {
+      "sku": "A06",
+      "cantidad": 6,
+      "precio_unitario": 228.0,
+      "descuento_pct": 2,
+      "subtotal": 1340.64
+     },
+     {
+      "sku": "S06",
+      "cantidad": 3,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     }
+    ],
+    "total": 2280.16,
+    "fecha_entrega": "2026-11-25",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 5 fardos de Limonada Volcán 600 ml, 6 displays de Shampoo Brisa sobre 10 ml, 6 cajas de Aceite Girasol Dorado 750 ml y 3 displays de Maní Salado La Finca 50 g, por un total de Q2,280.16. Entrega: miércoles 25 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 fardos de limonada volcan 600 ml",
+      "skus": [
+       "B06"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "seis shampoo brisa",
+      "skus": [
+       "P02"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 de aceite girasol dorado 750 ml",
+      "skus": [
+       "A06"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "tres displays de mani la finca",
+      "skus": [
+       "S06"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D058",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8786059199992451,
+   "latencia_modelo_s": 0.8731821419996777,
+   "tokens_entrada": 4761,
+   "tokens_salida": 86,
+   "costo_usd": 0.0005191,
+   "obtenido": {
+    "cliente_id": "C018",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A09",
+      "cantidad": 4,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 384.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     },
+     {
+      "sku": "B12",
+      "cantidad": 3,
+      "precio_unitario": 84.0,
+      "descuento_pct": 0,
+      "subtotal": 252.0
+     },
+     {
+      "sku": "L03",
+      "cantidad": 2,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 216.0
+     },
+     {
+      "sku": "S01",
+      "cantidad": 1,
+      "precio_unitario": 42.0,
+      "descuento_pct": 0,
+      "subtotal": 42.0
+     },
+     {
+      "sku": "A08",
+      "cantidad": 3,
+      "precio_unitario": 180.0,
+      "descuento_pct": 0,
+      "subtotal": 540.0
+     }
+    ],
+    "total": 1626.0,
+    "fecha_entrega": "2026-12-05",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Pasta Bella Coditos 200 g, 2 cajas de Jugo Huerto Naranja 250 ml, 3 fardos de Té Frío Quetzal Limón 500 ml, 2 cajas de Cloro Blancura 1 L, 1 display de Galletas Dulcitas Vainilla y 3 fardos de Harina de Maíz Mazorca 2 lb, por un total de Q1,626.00. Entrega: sábado 5 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "tres de harina mazorca",
+      "skus": [
+       "A08"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D059",
+   "tipo": "audio",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2084531179998521,
+   "latencia_modelo_s": 1.2082585529997232,
+   "tokens_entrada": 4769,
+   "tokens_salida": 213,
+   "costo_usd": 0.0005834,
+   "obtenido": {
+    "cliente_id": "C036",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A02",
+      "cantidad": 2,
+      "precio_unitario": 480.0,
+      "descuento_pct": 0,
+      "subtotal": 960.0
+     },
+     {
+      "sku": "S01",
+      "cantidad": 1,
+      "precio_unitario": 42.0,
+      "descuento_pct": 0,
+      "subtotal": 42.0
+     },
+     {
+      "sku": "B01",
+      "cantidad": 5,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 600.0
+     }
+    ],
+    "total": 1602.0,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 2 quintales de Arroz La Ceiba quintal, 1 display de Galletas Dulcitas Vainilla y 5 fardos de Kola Norte 600 ml, por un total de Q1,602.00. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "dos arroz la ceiba quintal",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "un display de galletas dulcitas vainilla",
+      "skus": [
+       "S01"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "cinco fardos de kola norte 600 ml",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D060",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.6562359839999772,
+   "latencia_modelo_s": 1.6560457470004621,
+   "tokens_entrada": 4758,
+   "tokens_salida": 150,
+   "costo_usd": 0.0005508,
+   "obtenido": {
+    "cliente_id": "C019",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B02",
+      "cantidad": 4,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 576.0
+     },
+     {
+      "sku": "B08",
+      "cantidad": 2,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     }
+    ],
+    "total": 720.0,
+    "fecha_entrega": "2026-12-05",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 4 fardos de Kola Norte 1.5 L y 2 fardos de Agua Pura Cristal 1.5 L, por un total de Q720.00. Entrega: sábado 5 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 de kola norte 1.5",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "dos de agua pura cristal 1.5 l",
+      "skus": [
+       "B08"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D061",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2405238520004787,
+   "latencia_modelo_s": 1.2402844660000483,
+   "tokens_entrada": 4747,
+   "tokens_salida": 95,
+   "costo_usd": 0.0005222,
+   "obtenido": {
+    "cliente_id": "C026",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B06",
+      "cantidad": 3,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 330.0
+     }
+    ],
+    "total": 330.0,
+    "fecha_entrega": "2026-12-05",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Limonada Volcán 600 ml, por un total de Q330.00. Entrega: sábado 5 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "72 botellas de limonada volcán 600 ml",
+      "skus": [
+       "B06"
+      ],
+      "cantidad": 72.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D062",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.6355176740007664,
+   "latencia_modelo_s": 1.6352382519999082,
+   "tokens_entrada": 4792,
+   "tokens_salida": 272,
+   "costo_usd": 0.0006152,
+   "obtenido": {
+    "cliente_id": "C033",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "L02",
+      "cantidad": 16,
+      "precio_unitario": 200.0,
+      "descuento_pct": 5,
+      "subtotal": 3040.0
+     },
+     {
+      "sku": "A14",
+      "cantidad": 3,
+      "precio_unitario": 156.0,
+      "descuento_pct": 0,
+      "subtotal": 468.0
+     },
+     {
+      "sku": "A06",
+      "cantidad": 2,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 456.0
+     }
+    ],
+    "total": 3964.0,
+    "fecha_entrega": "2026-12-14",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 16 cajas de Jabón de Barra Lavandero 350 g, 3 cajas de Nutrimezcla 450 g y 2 cajas de Aceite Girasol Dorado 750 ml, por un total de Q3,964.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: lunes 14 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "15 cajas de jabon lavandero",
+      "skus": [
+       "L02"
+      ],
+      "cantidad": 15.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 nutrimezcla 450 g",
+      "skus": [
+       "A14"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 aceite dorado",
+      "skus": [
+       "A06"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "corrijo: de jabón de barra lavandero 350 g son 16",
+      "skus": [
+       "L02"
+      ],
+      "cantidad": 16.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D063",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9581075269998109,
+   "latencia_modelo_s": 0.9579370379997272,
+   "tokens_entrada": 4736,
+   "tokens_salida": 83,
+   "costo_usd": 0.0005151,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B11",
+      "cantidad": 5,
+      "precio_unitario": 150.0,
+      "descuento_pct": 0,
+      "subtotal": 750.0
+     }
+    ],
+    "total": 750.0,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Energía Max 473 ml, por un total de Q750.00. Entrega: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 energía max 473 ml",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D064",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.51493579199996,
+   "latencia_modelo_s": 2.5146962939998048,
+   "tokens_entrada": 4751,
+   "tokens_salida": 337,
+   "costo_usd": 0.0006436,
+   "obtenido": {
+    "cliente_id": "C002",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B08",
+      "cantidad": 4,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     }
+    ],
+    "total": 288.0,
+    "fecha_entrega": "2026-12-08",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "cocas: 4",
+      "opciones": [
+       "B01",
+       "B02",
+       "B03"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 4 fardos de Agua Pura Cristal 1.5 L, por un total de Q288.00. Sobre «cocas: 4», un asesor le confirmará. Entrega estimada: martes 8 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 de agua pura cristal 1.5 l",
+      "skus": [
+       "B08"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "cocas: 4",
+      "skus": [
+       "B01",
+       "B02",
+       "B03"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D065",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.3530785789998845,
+   "latencia_modelo_s": 2.35292270500031,
+   "tokens_entrada": 4772,
+   "tokens_salida": 412,
+   "costo_usd": 0.0006832,
+   "obtenido": {
+    "cliente_id": "C022",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B09",
+      "cantidad": 10,
+      "precio_unitario": 96.0,
+      "descuento_pct": 3,
+      "subtotal": 931.2
+     },
+     {
+      "sku": "B12",
+      "cantidad": 3,
+      "precio_unitario": 84.0,
+      "descuento_pct": 0,
+      "subtotal": 252.0
+     },
+     {
+      "sku": "A02",
+      "cantidad": 5,
+      "precio_unitario": 480.0,
+      "descuento_pct": 2,
+      "subtotal": 2352.0
+     }
+    ],
+    "total": 3535.2,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 10 cajas de Jugo Huerto Naranja 250 ml, 3 fardos de Té Frío Quetzal Limón 500 ml y 5 quintales de Arroz La Ceiba quintal, por un total de Q3,535.20. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "10 cajas de jugo huerto naranja",
+      "skus": [
+       "B09"
+      ],
+      "cantidad": 10.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "36 botellas de te quetzal",
+      "skus": [
+       "B12"
+      ],
+      "cantidad": 36.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     },
+     {
+      "texto": "5 arroz quintal",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D066",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0895208420006384,
+   "latencia_modelo_s": 1.0894408120002481,
+   "tokens_entrada": 4742,
+   "tokens_salida": 31,
+   "costo_usd": 0.0004897,
+   "obtenido": {
+    "cliente_id": "C005",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D067",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.362115504999565,
+   "latencia_modelo_s": 1.361919652999859,
+   "tokens_entrada": 4790,
+   "tokens_salida": 219,
+   "costo_usd": 0.0005885,
+   "obtenido": {
+    "cliente_id": "C038",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "S01",
+      "cantidad": 1,
+      "precio_unitario": 42.0,
+      "descuento_pct": 0,
+      "subtotal": 42.0
+     },
+     {
+      "sku": "L02",
+      "cantidad": 5,
+      "precio_unitario": 200.0,
+      "descuento_pct": 0,
+      "subtotal": 1000.0
+     }
+    ],
+    "total": 1042.0,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Café Altura Instantáneo 50 g",
+      "opciones": [
+       "A13"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 1 display de Galletas Dulcitas Vainilla y 5 cajas de Jabón de Barra Lavandero 350 g, por un total de Q1,042.00. Sobre «Café Altura Instantáneo 50 g», un asesor le confirmará. Entrega estimada: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "1 display de dulcitas vainilla",
+      "skus": [
+       "S01"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "cinco cajas de jabon de barra lavandero 350 g",
+      "skus": [
+       "L02"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 cafe altura instantaneo 50 g",
+      "skus": [
+       "A13"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D068",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.7243262009997125,
+   "latencia_modelo_s": 1.7241148220000468,
+   "tokens_entrada": 4758,
+   "tokens_salida": 338,
+   "costo_usd": 0.0006448,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "P01",
+      "cantidad": 3,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 504.0
+     },
+     {
+      "sku": "S06",
+      "cantidad": 4,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     },
+     {
+      "sku": "A15",
+      "cantidad": 1,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 120.0
+     }
+    ],
+    "total": 864.0,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 cajas de Jabón de Tocador Rosa 100 g, 4 displays de Maní Salado La Finca 50 g y 1 caja de Sopa Rápida Pollo 64 g, por un total de Q864.00. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "jabon rosa: 3",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "mani la finca: 4",
+      "skus": [
+       "S06"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "sopa rapida",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D069",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.5942555350002294,
+   "latencia_modelo_s": 0.5941136969995569,
+   "tokens_entrada": 4737,
+   "tokens_salida": 31,
+   "costo_usd": 0.0004892,
+   "obtenido": {
+    "cliente_id": "C031",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D070",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.6688984980000896,
+   "latencia_modelo_s": 1.6686277030003112,
+   "tokens_entrada": 4794,
+   "tokens_salida": 269,
+   "costo_usd": 0.0006139,
+   "obtenido": {
+    "cliente_id": "C030",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A14",
+      "cantidad": 1,
+      "precio_unitario": 156.0,
+      "descuento_pct": 0,
+      "subtotal": 156.0
+     },
+     {
+      "sku": "A06",
+      "cantidad": 12,
+      "precio_unitario": 228.0,
+      "descuento_pct": 4,
+      "subtotal": 2626.56
+     },
+     {
+      "sku": "S05",
+      "cantidad": 6,
+      "precio_unitario": 48.0,
+      "descuento_pct": 0,
+      "subtotal": 288.0
+     }
+    ],
+    "total": 3070.56,
+    "fecha_entrega": "2026-12-14",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 1 caja de Nutrimezcla 450 g, 12 cajas de Aceite Girasol Dorado 750 ml y 6 displays de Papitas Doradas 40 g, por un total de Q3,070.56. Entrega: lunes 14 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "1 caja de nutrimezcla 450 g",
+      "skus": [
+       "A14"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "12 cajas de aceite girasol dorado 750 ml",
+      "skus": [
+       "A06"
+      ],
+      "cantidad": 12.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 papitas doradas",
+      "skus": [
+       "S05"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "de papitas doradas son 6",
+      "skus": [
+       "S05"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D071",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.9764709719993334,
+   "latencia_modelo_s": 0.9761867269999129,
+   "tokens_entrada": 4749,
+   "tokens_salida": 147,
+   "costo_usd": 0.0005484,
+   "obtenido": {
+    "cliente_id": "C015",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B05",
+      "cantidad": 4,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 528.0
+     },
+     {
+      "sku": "A02",
+      "cantidad": 2,
+      "precio_unitario": 480.0,
+      "descuento_pct": 0,
+      "subtotal": 960.0
+     }
+    ],
+    "total": 1488.0,
+    "fecha_entrega": "2026-12-08",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Naranjita 1.5 L y 2 quintales de Arroz La Ceiba quintal, por un total de Q1,488.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: martes 8 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "naranjita 1.5: 4",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 arroz la ceiba quintal",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D072",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.6435157969999636,
+   "latencia_modelo_s": 2.643154516999857,
+   "tokens_entrada": 4772,
+   "tokens_salida": 566,
+   "costo_usd": 0.0007602,
+   "obtenido": {
+    "cliente_id": "C030",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "L04",
+      "cantidad": 3,
+      "precio_unitario": 216.0,
+      "descuento_pct": 0,
+      "subtotal": 648.0
+     },
+     {
+      "sku": "B06",
+      "cantidad": 6,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 660.0
+     },
+     {
+      "sku": "B05",
+      "cantidad": 20,
+      "precio_unitario": 132.0,
+      "descuento_pct": 5,
+      "subtotal": 2508.0
+     },
+     {
+      "sku": "A05",
+      "cantidad": 2,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 440.0
+     }
+    ],
+    "total": 4256.0,
+    "fecha_entrega": "2026-12-03",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Papel Higiénico Suave 4 rollos, 6 fardos de Limonada Volcán 600 ml, 20 fardos de Naranjita 1.5 L y 2 fardos de Azúcar Dulzura 5 lb, por un total de Q4,256.00. Entrega: jueves 3 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "papel suave 4: 3",
+      "skus": [
+       "L04"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "limonada volcán 600 ml: 6",
+      "skus": [
+       "B06"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "20 fardos de naranjita 1.5",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 20.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 de azúcar dulzura",
+      "skus": [
+       "A05"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D073",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.2037358480001785,
+   "latencia_modelo_s": 2.203442764999636,
+   "tokens_entrada": 4815,
+   "tokens_salida": 529,
+   "costo_usd": 0.000746,
+   "obtenido": {
+    "cliente_id": "C030",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B07",
+      "cantidad": 2,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 120.0
+     },
+     {
+      "sku": "P01",
+      "cantidad": 9,
+      "precio_unitario": 168.0,
+      "descuento_pct": 3,
+      "subtotal": 1466.64
+     },
+     {
+      "sku": "B04",
+      "cantidad": 3,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 330.0
+     }
+    ],
+    "total": 1916.64,
+    "fecha_entrega": "2026-12-10",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 2 fardos de Agua Pura Cristal 600 ml, 9 cajas de Jabón de Tocador Rosa 100 g y 3 fardos de Naranjita 600 ml, por un total de Q1,916.64. Entrega: jueves 10 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "agua pura cristal 600 ml: 2",
+      "skus": [
+       "B07"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "6 cajas de jabón rosa",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 de naranjita 600",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "de jaabón de tocador rosa 100 g son nueve",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 9.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D074",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1351082359997235,
+   "latencia_modelo_s": 1.1349166649997642,
+   "tokens_entrada": 4763,
+   "tokens_salida": 204,
+   "costo_usd": 0.0005783,
+   "obtenido": {
+    "cliente_id": "C018",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A11",
+      "cantidad": 5,
+      "precio_unitario": 75.0,
+      "descuento_pct": 2,
+      "subtotal": 367.5
+     },
+     {
+      "sku": "L01",
+      "cantidad": 2,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 528.0
+     },
+     {
+      "sku": "L02",
+      "cantidad": 4,
+      "precio_unitario": 200.0,
+      "descuento_pct": 0,
+      "subtotal": 800.0
+     }
+    ],
+    "total": 1695.5,
+    "fecha_entrega": "2026-11-28",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 5 fardos de Sal Pacífico 1 lb, 2 fardos de Detergente Espumoso 500 g y 4 cajas de Jabón de Barra Lavandero 350 g, por un total de Q1,695.50. Entrega: sábado 28 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "sal pacifico: 5",
+      "skus": [
+       "A11"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "48 bolsas de detergente espumoso",
+      "skus": [
+       "L01"
+      ],
+      "cantidad": 48.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     },
+     {
+      "texto": "4 de jaabon lavandero",
+      "skus": [
+       "L02"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D075",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.0111463000002914,
+   "latencia_modelo_s": 1.0109546249996129,
+   "tokens_entrada": 4764,
+   "tokens_salida": 157,
+   "costo_usd": 0.0005549,
+   "obtenido": {
+    "cliente_id": "C020",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "L03",
+      "cantidad": 2,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 216.0
+     },
+     {
+      "sku": "A03",
+      "cantidad": 4,
+      "precio_unitario": 175.0,
+      "descuento_pct": 0,
+      "subtotal": 700.0
+     }
+    ],
+    "total": 916.0,
+    "fecha_entrega": "2026-12-14",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 2 cajas de Cloro Blancura 1 L y 4 fardos de Frijol Negro Monte Verde 1 lb, por un total de Q916.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: lunes 14 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "2 cajas de cloro blancura",
+      "skus": [
+       "L03"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "cuatro fardos de frijol negro monte verde 1 lb",
+      "skus": [
+       "A03"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D076",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.8455252109997673,
+   "latencia_modelo_s": 1.845320720000018,
+   "tokens_entrada": 4789,
+   "tokens_salida": 382,
+   "costo_usd": 0.0006699,
+   "obtenido": {
+    "cliente_id": "C039",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A02",
+      "cantidad": 6,
+      "precio_unitario": 480.0,
+      "descuento_pct": 2,
+      "subtotal": 2822.4
+     },
+     {
+      "sku": "B05",
+      "cantidad": 1,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 132.0
+     }
+    ],
+    "total": 2954.4,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 6 quintales de Arroz La Ceiba quintal y 1 fardo de Naranjita 1.5 L, por un total de Q2,954.40. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "arroz la ceiba quintal: 4",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "naranjita 1.5 l: 1",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "de arroz quintal mejor 6",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D077",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.865477354000177,
+   "latencia_modelo_s": 2.8652786289994765,
+   "tokens_entrada": 4815,
+   "tokens_salida": 644,
+   "costo_usd": 0.0008035,
+   "obtenido": {
+    "cliente_id": "C033",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B12",
+      "cantidad": 4,
+      "precio_unitario": 84.0,
+      "descuento_pct": 0,
+      "subtotal": 336.0
+     },
+     {
+      "sku": "A11",
+      "cantidad": 6,
+      "precio_unitario": 75.0,
+      "descuento_pct": 2,
+      "subtotal": 441.0
+     },
+     {
+      "sku": "S01",
+      "cantidad": 5,
+      "precio_unitario": 42.0,
+      "descuento_pct": 0,
+      "subtotal": 210.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 1,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     }
+    ],
+    "total": 1131.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Té Frío Quetzal Limón 500 ml, 6 fardos de Sal Pacífico 1 lb, 5 displays de Galletas Dulcitas Vainilla y 1 fardo de Kola Norte 1.5 L, por un total de Q1,131.00. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "té qutezal: 4",
+      "skus": [
+       "B12"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "4 de sal pacifico",
+      "skus": [
+       "A11"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "5 displays de galletas ducitas vainilla",
+      "skus": [
+       "S01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "1 de kola norte 1.5",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "Mejor 6 fardos de sal pacifico 1 lb",
+      "skus": [
+       "A11"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D078",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.1886620639998,
+   "latencia_modelo_s": 1.188493866000499,
+   "tokens_entrada": 4752,
+   "tokens_salida": 141,
+   "costo_usd": 0.0005457,
+   "obtenido": {
+    "cliente_id": "C021",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "L04",
+      "cantidad": 4,
+      "precio_unitario": 216.0,
+      "descuento_pct": 0,
+      "subtotal": 864.0
+     },
+     {
+      "sku": "B04",
+      "cantidad": 1,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 110.0
+     }
+    ],
+    "total": 974.0,
+    "fecha_entrega": "2026-12-01",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 4 fardos de Papel Higiénico Suave 4 rollos y 1 fardo de Naranjita 600 ml, por un total de Q974.00. Entrega: martes 1 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 de paapel suave 4",
+      "skus": [
+       "L04"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "naranjita 600 ml",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D079",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.396517940999729,
+   "latencia_modelo_s": 1.3962531530005435,
+   "tokens_entrada": 4750,
+   "tokens_salida": 145,
+   "costo_usd": 0.0005475,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B01",
+      "cantidad": 2,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     },
+     {
+      "sku": "B07",
+      "cantidad": 3,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     }
+    ],
+    "total": 420.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 2 fardos de Kola Norte 600 ml y 3 fardos de Agua Pura Cristal 600 ml, por un total de Q420.00. Entrega: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "2 fardos de kola norte 600",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "3 de agua cristal 600",
+      "skus": [
+       "B07"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D080",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 0.8269284830003016,
+   "latencia_modelo_s": 0.8229726099998516,
+   "tokens_entrada": 4744,
+   "tokens_salida": 87,
+   "costo_usd": 0.0005179,
+   "obtenido": {
+    "cliente_id": "C022",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B05",
+      "cantidad": 1,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 132.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 1,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 96.0
+     },
+     {
+      "sku": "L03",
+      "cantidad": 3,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 324.0
+     },
+     {
+      "sku": "P03",
+      "cantidad": 3,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     },
+     {
+      "sku": "A06",
+      "cantidad": 1,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 228.0
+     }
+    ],
+    "total": 1212.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B10",
+      "sku_entregado": "B09",
+      "cantidad": 1
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 1 fardo de Naranjita 1.5 L, 1 caja de Jugo Huerto Naranja 250 ml, 3 cajas de Cloro Blancura 1 L, 3 cajas de Pasta Dental Sonrisa 75 ml y 1 caja de Aceite Girasol Dorado 750 ml, por un total de Q1,212.00. Jugo Huerto Manzana 250 ml está agotado; le enviamos Jugo Huerto Naranja 250 ml en su lugar. Entrega: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "una caja de aceite dorado",
+      "skus": [
+       "A06"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D081",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.0331231019999905,
+   "latencia_modelo_s": 2.0329020380004295,
+   "tokens_entrada": 4754,
+   "tokens_salida": 425,
+   "costo_usd": 0.0006879,
+   "obtenido": {
+    "cliente_id": "C016",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A01",
+      "cantidad": 6,
+      "precio_unitario": 125.0,
+      "descuento_pct": 2,
+      "subtotal": 735.0
+     },
+     {
+      "sku": "A03",
+      "cantidad": 2,
+      "precio_unitario": 175.0,
+      "descuento_pct": 0,
+      "subtotal": 350.0
+     }
+    ],
+    "total": 1085.0,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 6 fardos de Arroz La Ceiba 1 lb y 2 fardos de Frijol Negro Monte Verde 1 lb, por un total de Q1,085.00. Entrega: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 fardos de arroz ceiba de libra",
+      "skus": [
+       "A01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "que sean 6",
+      "skus": [
+       "A01"
+      ],
+      "cantidad": 6.0,
+      "unidad": "venta",
+      "accion": "corregir"
+     },
+     {
+      "texto": "2 de frijol negro",
+      "skus": [
+       "A03"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D082",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2028478299998824,
+   "latencia_modelo_s": 1.202699665000182,
+   "tokens_entrada": 4735,
+   "tokens_salida": 143,
+   "costo_usd": 0.000545,
+   "obtenido": {
+    "cliente_id": "C038",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A12",
+      "cantidad": 1,
+      "precio_unitario": 420.0,
+      "descuento_pct": 0,
+      "subtotal": 420.0
+     }
+    ],
+    "total": 420.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "producto_ambiguo",
+      "texto": "2 cajas de aceite",
+      "opciones": [
+       "A06",
+       "A07"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "producto_ambiguo"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Café Altura Molido 400 g, por un total de Q420.00. Sobre «2 cajas de aceite», un asesor le confirmará. Entrega estimada: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "2 cajas de aceite",
+      "skus": [
+       "A06",
+       "A07"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "una de café altura molido",
+      "skus": [
+       "A12"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D083",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2010713029994804,
+   "latencia_modelo_s": 1.2009934940006133,
+   "tokens_entrada": 4731,
+   "tokens_salida": 32,
+   "costo_usd": 0.0004891,
+   "obtenido": {
+    "cliente_id": "C011",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D084",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 1.2466852879997532,
+   "latencia_modelo_s": 1.2464414169999145,
+   "tokens_entrada": 4738,
+   "tokens_salida": 135,
+   "costo_usd": 0.0005413,
+   "obtenido": {
+    "cliente_id": "C035",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "L03",
+      "cantidad": 1,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 108.0
+     },
+     {
+      "sku": "A09",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     }
+    ],
+    "total": 300.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Cloro Blancura 1 L y 2 fardos de Pasta Bella Coditos 200 g, por un total de Q300.00. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "una docena de cloro blancura",
+      "skus": [
+       "L03"
+      ],
+      "cantidad": 1.0,
+      "unidad": "docena",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 fardos de coditos bella",
+      "skus": [
+       "A09"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  }
+ ]
+}
