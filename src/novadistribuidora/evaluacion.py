@@ -1,7 +1,12 @@
 """Evaluación reproducible: calificación con código de cada caso contra su respuesta esperada.
 
-    python -m novadistribuidora.evaluacion --modelo openai/gpt-5-nano --variante ejemplos \\
-        --casos publicados/ejemplos/mensajes_dev.jsonl casos/casos_propios.jsonl
+    python -m novadistribuidora.evaluacion --modelo google/gemini-2.5-flash-lite \\
+        --casos publicados/ejemplos/mensajes_dev.jsonl casos/casos_propios.jsonl \\
+        --mlflow http://localhost:5000
+
+Con ``--mlflow`` la corrida se registra con ``mlflow.genai.evaluate`` en el
+experimento ``novadistribuidora-evaluacion``: una traza por caso con sus
+calificaciones, y métricas de calidad, latencia y costo para comparar corridas.
 
 Calificaciones (todas con código, sin juez LLM):
 
@@ -143,6 +148,82 @@ def imprimir(resumen: dict, registros: list[dict], modelo: str, variante: str) -
             print(f"  {r['id']} ({r['tipo']}): {r.get('error') or ', '.join(malos)}")
 
 
+def evaluar_en_mlflow(asistente, casos: list[dict], uri: str, etiqueta: str, parametros: dict,
+                      hilos: int = 4) -> tuple[list[dict], dict]:
+    """Igual que ``evaluar``, pero con ``mlflow.genai.evaluate``: trazas y calificaciones por caso."""
+    import os
+    import threading
+
+    import mlflow
+    from mlflow.entities import Feedback
+    from mlflow.genai.scorers import scorer
+
+    from novadistribuidora.observabilidad import Observador
+
+    obs = Observador(uri, experimento="novadistribuidora-evaluacion")
+    if not obs.sondear():
+        raise SystemExit(f"MLflow no responde en {uri}")
+    os.environ.setdefault("MLFLOW_GENAI_EVAL_MAX_WORKERS", str(hilos))
+    os.environ.setdefault("MLFLOW_GENAI_EVAL_SKIP_TRACE_VALIDATION", "true")  # evita llamar dos veces al 1.er caso
+
+    por_id = {c["id"]: c for c in casos}
+    registros: dict[str, dict] = {}
+    candado = threading.Lock()
+
+    @mlflow.trace(name="interpretar_pedido", span_type="CHAIN")  # raíz: agrupa LangChain y reglas
+    def predecir(caso_id: str, cliente_id: str, fecha_hora: str, mensajes: list[str]) -> dict:
+        r = evaluar_caso(asistente, por_id[caso_id])
+        with candado:
+            registros[caso_id] = r
+        return {"respuesta": r.get("obtenido"), "error": r.get("error"), "latencia_s": r["latencia_s"],
+                "costo_usd": r.get("costo_usd"), "tokens_entrada": r.get("tokens_entrada", 0),
+                "tokens_salida": r.get("tokens_salida", 0)}
+
+    def notas(outputs, expectations) -> dict:
+        if not outputs or outputs.get("respuesta") is None:
+            return {c: False for c in [*CRITERIOS, "exacto"]}
+        return calificar(expectations["pedido_esperado"], outputs["respuesta"])
+
+    def criterio(nombre: str):
+        @scorer(name=nombre)
+        def calificador(outputs, expectations) -> Feedback:
+            n = notas(outputs, expectations)
+            if nombre == "exacto":
+                malos = [c for c in CRITERIOS if not n[c]]
+                motivo = (outputs or {}).get("error") or ("falla: " + ", ".join(malos) if malos else "todo correcto")
+                return Feedback(value=n["exacto"], rationale=motivo)
+            return Feedback(value=n[nombre])
+        return calificador
+
+    @scorer(name="latencia_s", aggregations=["mean", "median", "p90", "max"])
+    def latencia(outputs) -> float:
+        return float((outputs or {}).get("latencia_s") or 0.0)
+
+    @scorer(name="costo_usd", aggregations=["mean", "max"])
+    def costo(outputs) -> float:
+        return float((outputs or {}).get("costo_usd") or 0.0)
+
+    # Una sola expectativa con el pedido completo: MLflow no admite expectativas con valor
+    # null (fecha_entrega de un pedido fuera de alcance).
+    datos = [{"inputs": {"caso_id": c["id"], **c["entrada"]}, "expectations": {"pedido_esperado": c["esperado"]},
+              "tags": {"tipo": c.get("tipo", ""), "origen": c.get("origen", "")}} for c in casos]
+    with mlflow.start_run(run_name=etiqueta) as run:
+        mlflow.log_params(parametros)
+        mlflow.genai.evaluate(data=datos, predict_fn=predecir,
+                              scorers=[criterio(c) for c in ["exacto", *CRITERIOS]] + [latencia, costo])
+        lista = [registros[c["id"]] for c in casos if c["id"] in registros]
+        resumen = resumir(lista)
+        mlflow.log_metrics({k: float(v) for k, v in resumen.items()
+                            if isinstance(v, (int, float)) and not isinstance(v, bool)})
+        for tipo, valor in resumen["exactitud_por_tipo"].items():
+            a, b = valor.split("/")
+            mlflow.log_metric(f"exactitud_tipo_{tipo}", int(a) / int(b))
+        mlflow.log_dict({"resumen": resumen, "casos": lista}, "detalle_evaluacion.json")
+        print(f"\nCorrida de MLflow: {uri}/#/experiments/{run.info.experiment_id}/runs/{run.info.run_id}")
+    obs.detener()
+    return lista, resumen
+
+
 def main(argv=None) -> None:
     from dotenv import load_dotenv
 
@@ -160,6 +241,8 @@ def main(argv=None) -> None:
     p.add_argument("--hilos", type=int, default=4)
     p.add_argument("--limite", type=int, default=None, help="evaluar solo los primeros N casos")
     p.add_argument("--salida", default=None, help="archivo JSON con el detalle por caso")
+    p.add_argument("--mlflow", default=None, metavar="URI",
+                   help="registrar la evaluación en MLflow (por ejemplo, http://localhost:5000)")
     a = p.parse_args(argv)
 
     if a.razonamiento is not None:
@@ -169,8 +252,16 @@ def main(argv=None) -> None:
     catalogo = Catalogo.desde_carpeta()
     extractor = Extractor(catalogo, modelo=a.modelo, variante=a.variante)
     casos = cargar_casos(a.casos)[: a.limite]
-    registros, resumen = evaluar(Asistente(catalogo, extractor), casos, a.hilos)
     etiqueta = extractor.variante + (f", razonamiento {extractor.razonamiento}" if extractor.razonamiento else "")
+    asistente = Asistente(catalogo, extractor)
+    if a.mlflow:
+        nombre = f"{extractor.modelo.split('/')[-1]} | {etiqueta} | {len(casos)} casos"
+        parametros = {"modelo": extractor.modelo, "variante": extractor.variante,
+                      "razonamiento": extractor.razonamiento or "por defecto",
+                      "casos": " ".join(Path(c).name for c in a.casos), "n_casos": len(casos)}
+        registros, resumen = evaluar_en_mlflow(asistente, casos, a.mlflow, nombre, parametros, a.hilos)
+    else:
+        registros, resumen = evaluar(asistente, casos, a.hilos)
     imprimir(resumen, registros, extractor.modelo, etiqueta)
     if a.salida:
         Path(a.salida).parent.mkdir(parents=True, exist_ok=True)
