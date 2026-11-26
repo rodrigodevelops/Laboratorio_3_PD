@@ -1,6 +1,11 @@
+# Lo que necesita la API (es lo que se instala en la imagen de Docker).
 pydantic==2.13.5
 pandas==3.0.5
 pyarrow==26.0.1
 langchain-core==1.8.5
 langchain-openai==1.8.5
 python-dotenv==1.2.3
+fastapi==0.162.5
+uvicorn==0.54.0
+# Cliente ligero de trazas de MLflow (incluye mlflow.langchain.autolog), sin el servidor.
+mlflow-tracing==3.18.0

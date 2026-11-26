@@ -170,7 +170,7 @@ class Extractor:
                 api_key=api_key or os.environ.get("OPENROUTER_API_KEY"),
                 base_url=base_url or os.environ.get("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
                 **opcionales,
-                timeout=timeout or float(os.environ.get("NOVA_TIMEOUT_LLM", "45")),
+                timeout=timeout or float(os.environ.get("NOVA_TIMEOUT_LLM", "20")),
                 max_retries=1,
                 # usage.include: OpenRouter devuelve el costo de cada llamada.
                 # require_parameters: solo se usan proveedores que soportan salida estructurada.
@@ -183,7 +183,10 @@ class Extractor:
 
     def extraer(self, mensajes: list[str]) -> ResultadoExtraccion:
         inicio = time.perf_counter()
-        salida = self.cadena.invoke([("system", self.instrucciones), ("human", formatear_mensajes(mensajes))])
+        try:
+            salida = self.cadena.invoke([("system", self.instrucciones), ("human", formatear_mensajes(mensajes))])
+        except Exception as ex:  # caída, timeout, límite de tokens, clave inválida...
+            raise ErrorExtraccion(f"{type(ex).__name__}: {ex}") from ex
         latencia = time.perf_counter() - inicio
         if salida.get("parsing_error") is not None or salida.get("parsed") is None:
             raise ErrorExtraccion(f"el modelo no devolvió una extracción válida: {salida.get('parsing_error')}")

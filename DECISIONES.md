@@ -172,3 +172,41 @@ es algo optimista. Para no seguir acomodándolo a este conjunto, no se ajustó m
 después de la segunda ronda. Los casos propios de `casos/`, que el prompt nunca
 vio, funcionan como prueba independiente.
 
+
+## 7. Servicio y observabilidad
+
+- **Códigos de respuesta.** 404 para un cliente inexistente, antes de llamar al
+  modelo. 422 para una solicitud inválida, con un mensaje en español que dice qué
+  campo falla y por qué (por ejemplo, "mensajes no puede estar vacío"). **503 si
+  el modelo no responde** (caída, timeout de 20 s con un reintento o salida que
+  no cumple el esquema).
+  - *Alternativa descartada:* responder 200 con `requiere_revision` y sin líneas.
+    El contrato no tiene un motivo para "el modelo falló", así que parecería un
+    pedido real. Un 503 es honesto y el sistema que llama sabe que debe
+    reintentar o pasarlo a un asesor.
+- **La API arranca aunque falte algo.** Si faltan los datos o la clave, arranca
+  igual, `/health` responde `degradado` con el motivo y `interpretar` responde
+  503. Así el problema se ve de inmediato en lugar de un contenedor que se
+  reinicia sin explicación.
+- **Trazas sin bloquear.** Un hilo consulta `/health` de MLflow cada 5 s (timeout
+  de 1 s). Si responde, las trazas están activas; si no, se pausan, la API sigue
+  atendiendo y `/health` responde `degradado`. Cuando MLflow vuelve, se reactivan
+  solas. Las trazas se envían en segundo plano y sin reintentos, así que una caída
+  entre dos consultas tampoco agrega latencia. Se verificó así: con MLflow
+  detenido, las solicitudes tardaron lo mismo (unos 0.33 s con un modelo falso);
+  al volver, las nuevas solicitudes volvieron a registrarse.
+- **Qué registra cada traza.** El span `interpretar_pedido` guarda la solicitud,
+  la respuesta y como atributos el modelo, los tokens, el costo y la latencia del
+  modelo. Debajo, `mlflow.langchain.autolog()` registra la llamada a LangChain
+  (instrucciones, respuesta cruda y extracción) y `reglas_del_negocio` registra la
+  extracción que entró y el pedido que salió. Cada traza lleva las etiquetas
+  `cliente_id`, `modelo`, `variante` y `estado` para filtrar en la interfaz.
+- **Imagen de la API con `mlflow-tracing`** (solo el cliente de trazas, con
+  autolog de LangChain) en lugar del paquete completo de MLflow. Así la imagen es
+  más liviana. El servidor usa `mlflow==3.18.0` con SQLite en un volumen: un solo
+  contenedor alcanza para este volumen de trazas.
+  - *Alternativa:* PostgreSQL como en el Laboratorio 2. Es más robusto con
+    muchos escritores, pero agrega un tercer contenedor que aquí no hace falta.
+- **Datos y credenciales fuera de la imagen.** Los datos se montan desde
+  `./publicados/datos` como solo lectura y la clave llega por `env_file`.
+  `.dockerignore` excluye `.env` y `publicados/`.

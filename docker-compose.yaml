@@ -1,0 +1,64 @@
+# NovaDistribuidora: toma de pedidos por WhatsApp.
+#
+#   cp .env.example .env        # y completar OPENROUTER_API_KEY
+#   docker compose up -d --build
+#
+# Servicios:
+#   api     Servicio de pedidos (puerto 8000)
+#   mlflow  Trazas y evaluaciones (interfaz en http://localhost:5000)
+#
+# Los datos publicados se leen de ./publicados/datos (solo lectura): no están en la imagen.
+# La API no depende de que MLflow esté arriba: si cae, sigue respondiendo y /health lo reporta.
+
+name: novadistribuidora
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    image: novadistribuidora-api:1.0
+    env_file: .env
+    environment:
+      NOVA_DATOS: /datos
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      # Las trazas se envían en segundo plano y, si MLflow cae, se descartan rápido
+      # en lugar de reintentar y acumularse.
+      MLFLOW_ENABLE_ASYNC_TRACE_LOGGING: "true"
+      MLFLOW_HTTP_REQUEST_TIMEOUT: "3"
+      MLFLOW_HTTP_REQUEST_MAX_RETRIES: "0"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./publicados/datos:/datos:ro
+    depends_on:
+      mlflow:
+        condition: service_started   # no espera a que esté sano: la API arranca igual
+    restart: unless-stopped
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: docker/mlflow.Dockerfile
+    image: novadistribuidora-mlflow:3.18.0
+    command: >
+      mlflow server
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --artifacts-destination /mlflow/artifacts
+      --serve-artifacts
+      --host 0.0.0.0 --port 5000 --workers 1
+      --allowed-hosts mlflow,mlflow:5000,localhost,localhost:5000,127.0.0.1,127.0.0.1:5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow-datos:/mlflow
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health', timeout=5)"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+      start_period: 30s
+    restart: unless-stopped
+
+volumes:
+  mlflow-datos:
