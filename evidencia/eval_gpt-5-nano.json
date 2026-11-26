@@ -1,0 +1,2451 @@
+{
+ "modelo": "openai/gpt-5-nano",
+ "variante": "ejemplos",
+ "razonamiento": "",
+ "resumen": {
+  "casos": 84,
+  "exactos": 19,
+  "exactitud": 0.2261904761904762,
+  "acierto_estado": 0.2261904761904762,
+  "acierto_lineas": 0.2261904761904762,
+  "acierto_lineas_exactas": 0.2261904761904762,
+  "acierto_total": 0.2261904761904762,
+  "acierto_fecha_entrega": 0.23809523809523808,
+  "acierto_sustituciones": 0.23809523809523808,
+  "acierto_motivos": 0.2261904761904762,
+  "acierto_pendientes": 0.23809523809523808,
+  "errores": 64,
+  "latencia_p50_s": 7.911305243000243,
+  "latencia_p95_s": 15.980185182000241,
+  "latencia_media_s": 8.778167725050116,
+  "costo_total_usd": 0.0080355,
+  "costo_por_pedido_usd": 0.00040177499999999994,
+  "tokens_entrada_media": 611.3095238095239,
+  "tokens_salida_media": 227.88095238095238,
+  "exactitud_por_tipo": {
+   "agotado": "1/6",
+   "ambiguo": "0/7",
+   "audio": "0/3",
+   "correccion": "0/7",
+   "credito": "1/5",
+   "fuera_de_alcance": "5/5",
+   "habitual": "3/8",
+   "no_existe": "0/4",
+   "simple": "6/19",
+   "sin_cantidad": "1/4",
+   "unidades": "1/9",
+   "varios_mensajes": "1/7"
+  }
+ },
+ "casos": [
+  {
+   "id": "D001",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.80203482900015,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2590, total_tokens=4062, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=0, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.0007183, is_byok=False, cost_details={'upstream_inference_cost': 0.0007183, 'upstream_inference_prompt_cost': 0.0001295, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D002",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.687826897999912,
+   "latencia_modelo_s": 2.687663788000009,
+   "tokens_entrada": 2557,
+   "tokens_salida": 454,
+   "costo_usd": 0.00020001,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D003",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.493116249000195,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2575, total_tokens=4047, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=0, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00071755, is_byok=False, cost_details={'upstream_inference_cost': 0.00071755, 'upstream_inference_prompt_cost': 0.00012875, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D004",
+   "tipo": "audio",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 14.04699944899994,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2584, total_tokens=4056, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060856, is_byok=False, cost_details={'upstream_inference_cost': 0.00060856, 'upstream_inference_prompt_cost': 1.976e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D005",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 26.525293785999565,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2570, total_tokens=4042, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060786, is_byok=False, cost_details={'upstream_inference_cost': 0.00060786, 'upstream_inference_prompt_cost': 1.906e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D006",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 13.529842626000573,
+   "latencia_modelo_s": 13.529285714000252,
+   "tokens_entrada": 2571,
+   "tokens_salida": 1253,
+   "costo_usd": 0.00052031,
+   "obtenido": {
+    "cliente_id": "C014",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A15",
+      "cantidad": 15,
+      "precio_unitario": 120.0,
+      "descuento_pct": 4,
+      "subtotal": 1728.0
+     }
+    ],
+    "total": 1728.0,
+    "fecha_entrega": "2026-12-03",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 15 cajas de Sopa Rápida Pollo 64 g, por un total de Q1,728.00. Entrega: jueves 3 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "15 cajas de sopa rápida pollo 64 g",
+      "skus": [
+       "A15"
+      ],
+      "cantidad": 15.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D007",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 21.173249480999402,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2589, total_tokens=4061, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060881, is_byok=False, cost_details={'upstream_inference_cost': 0.00060881, 'upstream_inference_prompt_cost': 2.001e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D008",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.55361066400019,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2576, total_tokens=4048, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060816, is_byok=False, cost_details={'upstream_inference_cost': 0.00060816, 'upstream_inference_prompt_cost': 1.936e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D009",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 25.38429745800022,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2588, total_tokens=4060, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060876, is_byok=False, cost_details={'upstream_inference_cost': 0.00060876, 'upstream_inference_prompt_cost': 1.996e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D010",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 17.501209994999954,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2561, total_tokens=4033, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060741, is_byok=False, cost_details={'upstream_inference_cost': 0.00060741, 'upstream_inference_prompt_cost': 1.861e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D011",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 25.921868463000465,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2564, total_tokens=4036, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060756, is_byok=False, cost_details={'upstream_inference_cost': 0.00060756, 'upstream_inference_prompt_cost': 1.876e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D012",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 12.698703701999875,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1500, prompt_tokens=2571, total_tokens=4071, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1408, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00061911, is_byok=False, cost_details={'upstream_inference_cost': 0.00061911, 'upstream_inference_prompt_cost': 1.911e-05, 'upstream_inference_completions_cost': 0.0006})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D013",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 15.682586713000092,
+   "latencia_modelo_s": 15.682219272999646,
+   "tokens_entrada": 2578,
+   "tokens_salida": 1382,
+   "costo_usd": 0.00057226,
+   "obtenido": {
+    "cliente_id": "C027",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B02",
+      "cantidad": 3,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     },
+     {
+      "sku": "A05",
+      "cantidad": 4,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 880.0
+     },
+     {
+      "sku": "A02",
+      "cantidad": 2,
+      "precio_unitario": 480.0,
+      "descuento_pct": 0,
+      "subtotal": 960.0
+     }
+    ],
+    "total": 2272.0,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Kola Norte 1.5 L, 4 fardos de Azúcar Dulzura 5 lb y 2 quintales de Arroz La Ceiba quintal, por un total de Q2,272.00. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 kola de litro y medio",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "azucar dulzura: 4",
+      "skus": [
+       "A05"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "arroz quintal: 2",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D014",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.94670341999972,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2573, total_tokens=4045, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060801, is_byok=False, cost_details={'upstream_inference_cost': 0.00060801, 'upstream_inference_prompt_cost': 1.921e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D015",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.792547480000394,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2568, total_tokens=4040, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060776, is_byok=False, cost_details={'upstream_inference_cost': 0.00060776, 'upstream_inference_prompt_cost': 1.896e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D016",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 5.23516463299984,
+   "latencia_modelo_s": 5.234894460999385,
+   "tokens_entrada": 2561,
+   "tokens_salida": 1180,
+   "costo_usd": 0.00049061,
+   "obtenido": {
+    "cliente_id": "C031",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B07",
+      "cantidad": 3,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 180.0
+     }
+    ],
+    "total": 180.0,
+    "fecha_entrega": "2026-12-04",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Agua Pura Cristal 600 ml, por un total de Q180.00. Entrega: viernes 4 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 agua pura cristal 600 ml",
+      "skus": [
+       "B07"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D017",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 9.338582659000167,
+   "latencia_modelo_s": 9.330378878000374,
+   "tokens_entrada": 2560,
+   "tokens_salida": 784,
+   "costo_usd": 0.00033216,
+   "obtenido": {
+    "cliente_id": "C005",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A03",
+      "cantidad": 3,
+      "precio_unitario": 175.0,
+      "descuento_pct": 0,
+      "subtotal": 525.0
+     },
+     {
+      "sku": "A06",
+      "cantidad": 3,
+      "precio_unitario": 228.0,
+      "descuento_pct": 0,
+      "subtotal": 684.0
+     },
+     {
+      "sku": "B08",
+      "cantidad": 3,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 216.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     }
+    ],
+    "total": 1617.0,
+    "fecha_entrega": "2026-12-04",
+    "sustituciones": [
+     {
+      "sku_solicitado": "A07",
+      "sku_entregado": "A06",
+      "cantidad": 3
+     }
+    ],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Desodorante Fresco roll-on 50 ml",
+      "opciones": [
+       "P04"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Frijol Negro Monte Verde 1 lb, 3 cajas de Aceite Girasol Dorado 750 ml, 3 fardos de Agua Pura Cristal 1.5 L y 2 cajas de Jugo Huerto Naranja 250 ml, por un total de Q1,617.00. Aceite Palma Real 750 ml está agotado; le enviamos Aceite Girasol Dorado 750 ml en su lugar. Sobre «Desodorante Fresco roll-on 50 ml», un asesor le confirmará. Entrega estimada: viernes 4 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D018",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 19.36268292999921,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2564, total_tokens=4036, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060756, is_byok=False, cost_details={'upstream_inference_cost': 0.00060756, 'upstream_inference_prompt_cost': 1.876e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D019",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.05733342900021,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2587, total_tokens=4059, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060871, is_byok=False, cost_details={'upstream_inference_cost': 0.00060871, 'upstream_inference_prompt_cost': 1.991e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D020",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.96213871800046,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2589, total_tokens=4061, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060881, is_byok=False, cost_details={'upstream_inference_cost': 0.00060881, 'upstream_inference_prompt_cost': 2.001e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D021",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 25.000985231000413,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2609, total_tokens=4081, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060981, is_byok=False, cost_details={'upstream_inference_cost': 0.00060981, 'upstream_inference_prompt_cost': 2.101e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D022",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 20.174659814000734,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2565, total_tokens=4037, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060761, is_byok=False, cost_details={'upstream_inference_cost': 0.00060761, 'upstream_inference_prompt_cost': 1.881e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D023",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 21.59974824299934,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2590, total_tokens=4062, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060886, is_byok=False, cost_details={'upstream_inference_cost': 0.00060886, 'upstream_inference_prompt_cost': 2.006e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D024",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 6.939957954999954,
+   "latencia_modelo_s": 6.93969928200022,
+   "tokens_entrada": 2558,
+   "tokens_salida": 1218,
+   "costo_usd": 0.00050566,
+   "obtenido": {
+    "cliente_id": "C009",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A12",
+      "cantidad": 36,
+      "precio_unitario": 420.0,
+      "descuento_pct": 4,
+      "subtotal": 14515.2
+     }
+    ],
+    "total": 14515.2,
+    "fecha_entrega": "2026-11-25",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 36 cajas de Café Altura Molido 400 g, por un total de Q14,515.20. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: miércoles 25 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "necesito 36 bolsas de cafe altura molido. porfa",
+      "skus": [
+       "A12"
+      ],
+      "cantidad": 36.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": false,
+    "pendientes": true,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D025",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 18.5443650670004,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2566, total_tokens=4038, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060766, is_byok=False, cost_details={'upstream_inference_cost': 0.00060766, 'upstream_inference_prompt_cost': 1.886e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D026",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 13.469899673999862,
+   "latencia_modelo_s": 13.469627571000274,
+   "tokens_entrada": 2591,
+   "tokens_salida": 1322,
+   "costo_usd": 0.00054891,
+   "obtenido": {
+    "cliente_id": "C036",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B11",
+      "cantidad": 4,
+      "precio_unitario": 150.0,
+      "descuento_pct": 0,
+      "subtotal": 600.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 1,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     }
+    ],
+    "total": 744.0,
+    "fecha_entrega": "2026-11-25",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Energía Max 473 ml y 1 fardo de Kola Norte 1.5 L, por un total de Q744.00. Entrega: miércoles 25 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 fardos de Energía Max",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "Kola Norte 1.5 L",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": null,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D027",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.03943634299958,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2575, total_tokens=4047, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060811, is_byok=False, cost_details={'upstream_inference_cost': 0.00060811, 'upstream_inference_prompt_cost': 1.931e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D028",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 7.823721705000025,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2563, total_tokens=4035, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060751, is_byok=False, cost_details={'upstream_inference_cost': 0.00060751, 'upstream_inference_prompt_cost': 1.871e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D029",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 35.57798838100007,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2575, total_tokens=4047, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060811, is_byok=False, cost_details={'upstream_inference_cost': 0.00060811, 'upstream_inference_prompt_cost': 1.931e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D030",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 16.42472568499943,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2558, total_tokens=4030, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060726, is_byok=False, cost_details={'upstream_inference_cost': 0.00060726, 'upstream_inference_prompt_cost': 1.846e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D031",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 26.031597946999682,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2565, total_tokens=4037, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060761, is_byok=False, cost_details={'upstream_inference_cost': 0.00060761, 'upstream_inference_prompt_cost': 1.881e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D032",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.040531908000048,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2586, total_tokens=4058, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060866, is_byok=False, cost_details={'upstream_inference_cost': 0.00060866, 'upstream_inference_prompt_cost': 1.986e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D033",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 12.093821300000855,
+   "latencia_modelo_s": 12.087928237000597,
+   "tokens_entrada": 2568,
+   "tokens_salida": 1222,
+   "costo_usd": 0.00050776,
+   "obtenido": {
+    "cliente_id": "C017",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "A05",
+      "cantidad": 1,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 220.0
+     },
+     {
+      "sku": "B05",
+      "cantidad": 1,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 132.0
+     },
+     {
+      "sku": "P02",
+      "cantidad": 4,
+      "precio_unitario": 36.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     },
+     {
+      "sku": "L01",
+      "cantidad": 5,
+      "precio_unitario": 264.0,
+      "descuento_pct": 0,
+      "subtotal": 1320.0
+     }
+    ],
+    "total": 1816.0,
+    "fecha_entrega": "2026-12-01",
+    "sustituciones": [],
+    "pendientes": [
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Café Altura Instantáneo 50 g",
+      "opciones": [
+       "A13"
+      ]
+     },
+     {
+      "motivo": "agotado_sin_sustituto",
+      "texto": "Galletas Dulcitas Chocolate",
+      "opciones": [
+       "S02"
+      ]
+     }
+    ],
+    "motivos_revision": [
+     "agotado_sin_sustituto"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 fardo de Azúcar Dulzura 5 lb, 1 fardo de Naranjita 1.5 L, 4 displays de Shampoo Brisa sobre 10 ml y 5 fardos de Detergente Espumoso 500 g, por un total de Q1,816.00. Sobre «Café Altura Instantáneo 50 g» y «Galletas Dulcitas Chocolate», un asesor le confirmará. Entrega estimada: martes 1 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "5 fardos de detergente espumoso",
+      "skus": [
+       "L01"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D034",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 20.879568590000417,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2582, total_tokens=4054, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060846, is_byok=False, cost_details={'upstream_inference_cost': 0.00060846, 'upstream_inference_prompt_cost': 1.966e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D035",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 7.751728582000396,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2582, total_tokens=4054, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060846, is_byok=False, cost_details={'upstream_inference_cost': 0.00060846, 'upstream_inference_prompt_cost': 1.966e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D036",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 27.852561231000436,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2571, total_tokens=4043, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060791, is_byok=False, cost_details={'upstream_inference_cost': 0.00060791, 'upstream_inference_prompt_cost': 1.911e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D037",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 22.861651007000546,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2574, total_tokens=4046, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060806, is_byok=False, cost_details={'upstream_inference_cost': 0.00060806, 'upstream_inference_prompt_cost': 1.926e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D038",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.228769846999967,
+   "latencia_modelo_s": 2.2285976350003693,
+   "tokens_entrada": 2559,
+   "tokens_salida": 370,
+   "costo_usd": 0.00016651,
+   "obtenido": {
+    "cliente_id": "C016",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D039",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 27.233436642000015,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2576, total_tokens=4048, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060816, is_byok=False, cost_details={'upstream_inference_cost': 0.00060816, 'upstream_inference_prompt_cost': 1.936e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D040",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 15.26110208800037,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2583, total_tokens=4055, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060851, is_byok=False, cost_details={'upstream_inference_cost': 0.00060851, 'upstream_inference_prompt_cost': 1.971e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D041",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 20.554949606000264,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2590, total_tokens=4062, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060886, is_byok=False, cost_details={'upstream_inference_cost': 0.00060886, 'upstream_inference_prompt_cost': 2.006e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D042",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 18.94655128300019,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2582, total_tokens=4054, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060846, is_byok=False, cost_details={'upstream_inference_cost': 0.00060846, 'upstream_inference_prompt_cost': 1.966e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D043",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 12.294565776999661,
+   "latencia_modelo_s": 12.28886365299968,
+   "tokens_entrada": 2577,
+   "tokens_salida": 1414,
+   "costo_usd": 0.00058501,
+   "obtenido": {
+    "cliente_id": "C023",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A05",
+      "cantidad": 2,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 440.0
+     },
+     {
+      "sku": "A10",
+      "cantidad": 1,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 96.0
+     },
+     {
+      "sku": "B06",
+      "cantidad": 2,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 220.0
+     },
+     {
+      "sku": "B08",
+      "cantidad": 1,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 72.0
+     },
+     {
+      "sku": "L03",
+      "cantidad": 4,
+      "precio_unitario": 108.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     },
+     {
+      "sku": "B11",
+      "cantidad": 1,
+      "precio_unitario": 150.0,
+      "descuento_pct": 0,
+      "subtotal": 150.0
+     }
+    ],
+    "total": 1410.0,
+    "fecha_entrega": "2026-12-02",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 2 fardos de Azúcar Dulzura 5 lb, 1 fardo de Pasta Bella Espagueti 200 g, 2 fardos de Limonada Volcán 600 ml, 1 fardo de Agua Pura Cristal 1.5 L, 4 cajas de Cloro Blancura 1 L y 1 fardo de Energía Max 473 ml, por un total de Q1,410.00. Entrega: miércoles 2 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "Apúnteme 1 de energía max 473 ml. porfa",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D044",
+   "tipo": "habitual",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 8.816548750000038,
+   "latencia_modelo_s": 8.810426505999203,
+   "tokens_entrada": 2569,
+   "tokens_salida": 922,
+   "costo_usd": 0.00038781,
+   "obtenido": {
+    "cliente_id": "C030",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "A05",
+      "cantidad": 4,
+      "precio_unitario": 220.0,
+      "descuento_pct": 0,
+      "subtotal": 880.0
+     },
+     {
+      "sku": "B02",
+      "cantidad": 4,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 576.0
+     },
+     {
+      "sku": "P01",
+      "cantidad": 2,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 336.0
+     },
+     {
+      "sku": "S03",
+      "cantidad": 2,
+      "precio_unitario": 35.0,
+      "descuento_pct": 0,
+      "subtotal": 70.0
+     },
+     {
+      "sku": "S06",
+      "cantidad": 4,
+      "precio_unitario": 60.0,
+      "descuento_pct": 0,
+      "subtotal": 240.0
+     },
+     {
+      "sku": "B01",
+      "cantidad": 1,
+      "precio_unitario": 120.0,
+      "descuento_pct": 0,
+      "subtotal": 120.0
+     }
+    ],
+    "total": 2222.0,
+    "fecha_entrega": "2026-11-26",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B03",
+      "sku_entregado": "B02",
+      "cantidad": 4
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 4 fardos de Azúcar Dulzura 5 lb, 4 fardos de Kola Norte 1.5 L, 2 cajas de Jabón de Tocador Rosa 100 g, 2 displays de Galletas Saladas Crac, 4 displays de Maní Salado La Finca 50 g y 1 fardo de Kola Norte 600 ml, por un total de Q2,222.00. Kola Norte 3 L está agotado; le enviamos Kola Norte 1.5 L en su lugar. Entrega: jueves 26 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": true,
+    "menciones": [
+     {
+      "texto": "1 fardo de kola norte 600",
+      "skus": [
+       "B01"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D045",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.84905518800042,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2581, total_tokens=4053, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=0, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00071785, is_byok=False, cost_details={'upstream_inference_cost': 0.00071785, 'upstream_inference_prompt_cost': 0.00012905, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D046",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.473009506999915,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2574, total_tokens=4046, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060806, is_byok=False, cost_details={'upstream_inference_cost': 0.00060806, 'upstream_inference_prompt_cost': 1.926e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D047",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 19.413644598000246,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2582, total_tokens=4054, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060846, is_byok=False, cost_details={'upstream_inference_cost': 0.00060846, 'upstream_inference_prompt_cost': 1.966e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D048",
+   "tipo": "no_existe",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 25.123474562999945,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2574, total_tokens=4046, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060806, is_byok=False, cost_details={'upstream_inference_cost': 0.00060806, 'upstream_inference_prompt_cost': 1.926e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D049",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.82381111900031,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2577, total_tokens=4049, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060821, is_byok=False, cost_details={'upstream_inference_cost': 0.00060821, 'upstream_inference_prompt_cost': 1.941e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D050",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 7.006061736000447,
+   "latencia_modelo_s": 7.0057604740004535,
+   "tokens_entrada": 2568,
+   "tokens_salida": 705,
+   "costo_usd": 0.00030096,
+   "obtenido": {
+    "cliente_id": "C033",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B02",
+      "cantidad": 3,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 432.0
+     }
+    ],
+    "total": 432.0,
+    "fecha_entrega": "2026-11-30",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 3 fardos de Kola Norte 1.5 L, por un total de Q432.00. Entrega: lunes 30 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "36 botellas de kola de litro y medio",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 36.0,
+      "unidad": "unidad",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D051",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 25.40495877000012,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2581, total_tokens=4053, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060841, is_byok=False, cost_details={'upstream_inference_cost': 0.00060841, 'upstream_inference_prompt_cost': 1.961e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D052",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 11.234571089000383,
+   "latencia_modelo_s": 11.23427429200001,
+   "tokens_entrada": 2578,
+   "tokens_salida": 1267,
+   "costo_usd": 0.00052626,
+   "obtenido": {
+    "cliente_id": "C011",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "P01",
+      "cantidad": 1,
+      "precio_unitario": 168.0,
+      "descuento_pct": 0,
+      "subtotal": 168.0
+     },
+     {
+      "sku": "B09",
+      "cantidad": 2,
+      "precio_unitario": 96.0,
+      "descuento_pct": 0,
+      "subtotal": 192.0
+     }
+    ],
+    "total": 360.0,
+    "fecha_entrega": "2026-11-27",
+    "sustituciones": [
+     {
+      "sku_solicitado": "B10",
+      "sku_entregado": "B09",
+      "cantidad": 2
+     }
+    ],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 1 caja de Jabón de Tocador Rosa 100 g y 2 cajas de Jugo Huerto Naranja 250 ml, por un total de Q360.00. Jugo Huerto Manzana 250 ml está agotado; le enviamos Jugo Huerto Naranja 250 ml en su lugar. Entrega: viernes 27 de noviembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "una caja de jabon de tocador rosa 100 g",
+      "skus": [
+       "P01"
+      ],
+      "cantidad": 1.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "dos cajas de jugo huerto manzana 250 ml",
+      "skus": [
+       "B10"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D053",
+   "tipo": "audio",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 26.06821340100032,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2587, total_tokens=4059, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060871, is_byok=False, cost_details={'upstream_inference_cost': 0.00060871, 'upstream_inference_prompt_cost': 1.991e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D054",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 26.106043615999624,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2593, total_tokens=4065, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060901, is_byok=False, cost_details={'upstream_inference_cost': 0.00060901, 'upstream_inference_prompt_cost': 2.021e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D055",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 3.575641786000233,
+   "latencia_modelo_s": 3.575416488999508,
+   "tokens_entrada": 2563,
+   "tokens_salida": 710,
+   "costo_usd": 0.00030271,
+   "obtenido": {
+    "cliente_id": "C036",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B04",
+      "cantidad": 3,
+      "precio_unitario": 110.0,
+      "descuento_pct": 0,
+      "subtotal": 330.0
+     }
+    ],
+    "total": 330.0,
+    "fecha_entrega": "2026-12-12",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 3 fardos de Naranjita 600 ml, por un total de Q330.00. Entrega: sábado 12 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "3 naranjita 600",
+      "skus": [
+       "B04"
+      ],
+      "cantidad": 3.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D056",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.779927466999652,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2582, total_tokens=4054, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060846, is_byok=False, cost_details={'upstream_inference_cost': 0.00060846, 'upstream_inference_prompt_cost': 1.966e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D057",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 21.08496748000016,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2594, total_tokens=4066, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060906, is_byok=False, cost_details={'upstream_inference_cost': 0.00060906, 'upstream_inference_prompt_cost': 2.026e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D058",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 28.06045512200035,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2575, total_tokens=4047, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060811, is_byok=False, cost_details={'upstream_inference_cost': 0.00060811, 'upstream_inference_prompt_cost': 1.931e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D059",
+   "tipo": "audio",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 16.790377092999734,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2584, total_tokens=4056, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060856, is_byok=False, cost_details={'upstream_inference_cost': 0.00060856, 'upstream_inference_prompt_cost': 1.976e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D060",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 18.645072970999536,
+   "latencia_modelo_s": 18.64474301500013,
+   "tokens_entrada": 2577,
+   "tokens_salida": 1360,
+   "costo_usd": 0.00056341,
+   "obtenido": {
+    "cliente_id": "C019",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B02",
+      "cantidad": 4,
+      "precio_unitario": 144.0,
+      "descuento_pct": 0,
+      "subtotal": 576.0
+     },
+     {
+      "sku": "B08",
+      "cantidad": 2,
+      "precio_unitario": 72.0,
+      "descuento_pct": 0,
+      "subtotal": 144.0
+     }
+    ],
+    "total": 720.0,
+    "fecha_entrega": "2026-12-05",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas noches! Recibimos su pedido: 4 fardos de Kola Norte 1.5 L y 2 fardos de Agua Pura Cristal 1.5 L, por un total de Q720.00. Entrega: sábado 5 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "4 de kola norte 1.5",
+      "skus": [
+       "B02"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "dos de agua pura cristal 1.5 l",
+      "skus": [
+       "B08"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D061",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 22.42906696999944,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2571, total_tokens=4043, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060791, is_byok=False, cost_details={'upstream_inference_cost': 0.00060791, 'upstream_inference_prompt_cost': 1.911e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D062",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 21.10757417500008,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2600, total_tokens=4072, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060936, is_byok=False, cost_details={'upstream_inference_cost': 0.00060936, 'upstream_inference_prompt_cost': 2.056e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D063",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 5.431084290999934,
+   "latencia_modelo_s": 5.430804272000387,
+   "tokens_entrada": 2561,
+   "tokens_salida": 969,
+   "costo_usd": 0.00040621,
+   "obtenido": {
+    "cliente_id": "C001",
+    "estado": "confirmado",
+    "lineas": [
+     {
+      "sku": "B11",
+      "cantidad": 5,
+      "precio_unitario": 150.0,
+      "descuento_pct": 0,
+      "subtotal": 750.0
+     }
+    ],
+    "total": 750.0,
+    "fecha_entrega": "2026-12-07",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Recibimos su pedido: 5 fardos de Energía Max 473 ml, por un total de Q750.00. Entrega: lunes 7 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "5 energía max 473 ml",
+      "skus": [
+       "B11"
+      ],
+      "cantidad": 5.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D064",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 28.66815461099941,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2573, total_tokens=4045, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060801, is_byok=False, cost_details={'upstream_inference_cost': 0.00060801, 'upstream_inference_prompt_cost': 1.921e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D065",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 9.437773224999546,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2583, total_tokens=4055, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060851, is_byok=False, cost_details={'upstream_inference_cost': 0.00060851, 'upstream_inference_prompt_cost': 1.971e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D066",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 5.661342025000522,
+   "latencia_modelo_s": 5.661177662000227,
+   "tokens_entrada": 2564,
+   "tokens_salida": 391,
+   "costo_usd": 0.00017516,
+   "obtenido": {
+    "cliente_id": "C005",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D067",
+   "tipo": "agotado",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.756749060999937,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2595, total_tokens=4067, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060911, is_byok=False, cost_details={'upstream_inference_cost': 0.00060911, 'upstream_inference_prompt_cost': 2.031e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D068",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.254656303000047,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2579, total_tokens=4051, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060831, is_byok=False, cost_details={'upstream_inference_cost': 0.00060831, 'upstream_inference_prompt_cost': 1.951e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D069",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 2.3267873370004963,
+   "latencia_modelo_s": 2.32666534100008,
+   "tokens_entrada": 2563,
+   "tokens_salida": 410,
+   "costo_usd": 0.00018271,
+   "obtenido": {
+    "cliente_id": "C031",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D070",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 20.373363217000588,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2601, total_tokens=4073, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060941, is_byok=False, cost_details={'upstream_inference_cost': 0.00060941, 'upstream_inference_prompt_cost': 2.061e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D071",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 15.980185182000241,
+   "latencia_modelo_s": 15.979849237000053,
+   "tokens_entrada": 2572,
+   "tokens_salida": 1496,
+   "costo_usd": 0.00061756,
+   "obtenido": {
+    "cliente_id": "C015",
+    "estado": "requiere_revision",
+    "lineas": [
+     {
+      "sku": "B05",
+      "cantidad": 4,
+      "precio_unitario": 132.0,
+      "descuento_pct": 0,
+      "subtotal": 528.0
+     },
+     {
+      "sku": "A02",
+      "cantidad": 2,
+      "precio_unitario": 480.0,
+      "descuento_pct": 0,
+      "subtotal": 960.0
+     }
+    ],
+    "total": 1488.0,
+    "fecha_entrega": "2026-12-08",
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [
+     "credito_excedido"
+    ],
+    "mensaje_cliente": "¡Buenos días! Recibimos su pedido: 4 fardos de Naranjita 1.5 L y 2 quintales de Arroz La Ceiba quintal, por un total de Q1,488.00. Un asesor revisará su crédito antes de enviar el pedido. Entrega estimada: martes 8 de diciembre. ¡Gracias!"
+   },
+   "extraccion": {
+    "es_pedido": true,
+    "lo_de_siempre": false,
+    "menciones": [
+     {
+      "texto": "naranjita 1.5: 4",
+      "skus": [
+       "B05"
+      ],
+      "cantidad": 4.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     },
+     {
+      "texto": "2 arroz la ceiba quintal",
+      "skus": [
+       "A02"
+      ],
+      "cantidad": 2.0,
+      "unidad": "venta",
+      "accion": "agregar"
+     }
+    ]
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D072",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 28.57115224000063,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2593, total_tokens=4065, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060901, is_byok=False, cost_details={'upstream_inference_cost': 0.00060901, 'upstream_inference_prompt_cost': 2.021e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D073",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 13.36941633800052,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2612, total_tokens=4084, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060996, is_byok=False, cost_details={'upstream_inference_cost': 0.00060996, 'upstream_inference_prompt_cost': 2.116e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D074",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.042370907000077,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2581, total_tokens=4053, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060841, is_byok=False, cost_details={'upstream_inference_cost': 0.00060841, 'upstream_inference_prompt_cost': 1.961e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D075",
+   "tipo": "credito",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 27.96195853500012,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2578, total_tokens=4050, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060826, is_byok=False, cost_details={'upstream_inference_cost': 0.00060826, 'upstream_inference_prompt_cost': 1.946e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D076",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.997305604999383,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2600, total_tokens=4072, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060936, is_byok=False, cost_details={'upstream_inference_cost': 0.00060936, 'upstream_inference_prompt_cost': 2.056e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D077",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 24.59682488300041,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2616, total_tokens=4088, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00061016, is_byok=False, cost_details={'upstream_inference_cost': 0.00061016, 'upstream_inference_prompt_cost': 2.136e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D078",
+   "tipo": "sin_cantidad",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 23.96227898699999,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2573, total_tokens=4045, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060801, is_byok=False, cost_details={'upstream_inference_cost': 0.00060801, 'upstream_inference_prompt_cost': 1.921e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D079",
+   "tipo": "simple",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 8.004987399000129,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2572, total_tokens=4044, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060796, is_byok=False, cost_details={'upstream_inference_cost': 0.00060796, 'upstream_inference_prompt_cost': 1.916e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D080",
+   "tipo": "varios_mensajes",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 12.99001070400027,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2570, total_tokens=4042, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=0, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.0007173, is_byok=False, cost_details={'upstream_inference_cost': 0.0007173, 'upstream_inference_prompt_cost': 0.0001285, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D081",
+   "tipo": "correccion",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 30.712802668000222,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2577, total_tokens=4049, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060821, is_byok=False, cost_details={'upstream_inference_cost': 0.00060821, 'upstream_inference_prompt_cost': 1.941e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D082",
+   "tipo": "ambiguo",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 31.973888327999703,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2561, total_tokens=4033, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060741, is_byok=False, cost_details={'upstream_inference_cost': 0.00060741, 'upstream_inference_prompt_cost': 1.861e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  },
+  {
+   "id": "D083",
+   "tipo": "fuera_de_alcance",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 3.38504125199961,
+   "latencia_modelo_s": 3.3848887299991475,
+   "tokens_entrada": 2555,
+   "tokens_salida": 313,
+   "costo_usd": 0.00014351,
+   "obtenido": {
+    "cliente_id": "C011",
+    "estado": "fuera_de_alcance",
+    "lineas": [],
+    "total": 0.0,
+    "fecha_entrega": null,
+    "sustituciones": [],
+    "pendientes": [],
+    "motivos_revision": [],
+    "mensaje_cliente": "¡Buenas tardes! Gracias por escribirnos. Un asesor le responderá en breve."
+   },
+   "extraccion": {
+    "es_pedido": false,
+    "lo_de_siempre": false,
+    "menciones": []
+   },
+   "notas": {
+    "estado": true,
+    "lineas": true,
+    "lineas_exactas": true,
+    "total": true,
+    "fecha_entrega": true,
+    "sustituciones": true,
+    "motivos": true,
+    "pendientes": true,
+    "exacto": true
+   }
+  },
+  {
+   "id": "D084",
+   "tipo": "unidades",
+   "origen": "mensajes_dev.jsonl",
+   "latencia_s": 28.87787646600009,
+   "error": "LengthFinishReasonError: Could not parse response content as the length limit was reached - CompletionUsage(completion_tokens=1472, prompt_tokens=2567, total_tokens=4039, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=None, audio_tokens=0, reasoning_tokens=1472, rejected_prediction_tokens=None, text_tokens=None, image_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cache_write_tokens=0, cached_tokens=2432, image_tokens=None, text_tokens=None, video_tokens=0), cost=0.00060771, is_byok=False, cost_details={'upstream_inference_cost': 0.00060771, 'upstream_inference_prompt_cost': 1.891e-05, 'upstream_inference_completions_cost': 0.0005888})",
+   "notas": {
+    "estado": false,
+    "lineas": false,
+    "lineas_exactas": false,
+    "total": false,
+    "fecha_entrega": false,
+    "sustituciones": false,
+    "motivos": false,
+    "pendientes": false,
+    "exacto": false
+   }
+  }
+ ]
+}

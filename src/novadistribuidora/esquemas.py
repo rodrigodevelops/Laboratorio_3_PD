@@ -73,7 +73,7 @@ class Linea(BaseModel):
     sku: str
     cantidad: int = Field(gt=0)
     precio_unitario: float
-    descuento_pct: float
+    descuento_pct: int | float  # entero cuando lo es (0, 3, 5), como en el contrato
     subtotal: float
 
 
