@@ -55,17 +55,17 @@ class SolicitudInterpretar(BaseModel):
     @classmethod
     def _formato(cls, v):
         if not isinstance(v, str):
-            raise ValueError("fecha_hora debe ser texto con formato AAAA-MM-DDTHH:MM")
+            raise ValueError("debe ser texto con formato AAAA-MM-DDTHH:MM")
         try:
             return datetime.strptime(v.strip(), "%Y-%m-%dT%H:%M")
         except ValueError:
-            raise ValueError("fecha_hora debe tener el formato AAAA-MM-DDTHH:MM (hora de Guatemala)") from None
+            raise ValueError("debe tener el formato AAAA-MM-DDTHH:MM (hora de Guatemala)") from None
 
     @field_validator("mensajes")
     @classmethod
     def _no_vacios(cls, v: list[str]):
         if not any(m.strip() for m in v):
-            raise ValueError("mensajes no puede estar vacío")
+            raise ValueError("no puede estar vacío")
         return v
 
 
